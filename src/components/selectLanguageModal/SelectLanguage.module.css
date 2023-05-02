@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.select {
+    
+    box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.select p {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+
+.select-item {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+
+.select-item p {
+    font-size: 22px;
+    font-weight: 500;
+}
