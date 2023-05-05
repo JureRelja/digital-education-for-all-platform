@@ -4,9 +4,12 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    row-gap: 10px;
 }
 
-.select {
+
+
+/* .select {
     
     box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.1);
     border: none;
@@ -29,4 +32,4 @@
 .select-item p {
     font-size: 22px;
     font-weight: 500;
-}
+} */

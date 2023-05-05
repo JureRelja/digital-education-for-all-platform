@@ -1,0 +1,42 @@
+.progress-bar-outter {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.progress-bar-inner {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 25px;
+    border-radius: 10px;
+    color: white;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.blue {
+    background-color: rgb(179, 218, 255);
+}
+
+.blue-inner {
+    background-color: #42a5f5;
+}
+
+.orange {
+    background-color: #fed8a0;
+}
+
+.orange-inner {
+    background-color: #ff9800;
+}
+
+.purple {
+    background-color: rgb(217, 173, 245);
+}
+
+.purple-inner {
+    background-color: #ba68c8;
+}

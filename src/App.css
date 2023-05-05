@@ -1,22 +1,65 @@
-* {
+body {
   padding: 0;
   margin: 0;
   width: 100%;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
 
 .app {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 
 .router-container {
-  width: 75%;
+  width: 90%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  padding-bottom: 30px;
+  max-height: 90vh;
+  box-shadow: 0 0 10px rgba(75, 75, 75, 0.2);
+  border-radius: 10px;
+}
+
+.footer-banner {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.footer-banner img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
 }
