@@ -1,0 +1,13 @@
+dark orange - #fe9600
+
+little lighter orange - #fdb200
+
+yellow - #fed201
+
+blue - #38a7de
+
+red - #ef5b5b
+
+green - #80bb00
+
+light yellow from the logo - #ffdd4f
