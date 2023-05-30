@@ -3,7 +3,7 @@ import Button from "../../base-components/Button";
 import Lucide from "../../base-components/Lucide";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import JobSuggestionTest from "../../components/JobSuggestionTest";
+import JobSuggestion from "../../components/JobSuggestion";
 import JobSuggestionResults from "../../components/JobSuggestionResults";
 import useText from "../../hooks/textLanguage";
 
@@ -58,7 +58,7 @@ function InitialTestPage() {
             </div>
           ) : (
             <>
-              <JobSuggestionTest />
+              <JobSuggestion />
             </>
           )}
         </>
