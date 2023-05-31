@@ -5,6 +5,8 @@ import { RIASECTypeEng } from "../../text/jobSuggestion/RIASECType";
 import { resultsTextEng } from "../../text/jobSuggestion/ResultsText";
 import { useNavigate } from "react-router";
 import useText from "../../hooks/textLanguage";
+import Heading from "../../components/Heading";
+import PageContainer from "../../components/PageContainer";
 
 function index() {
   const navigate = useNavigate();
@@ -28,9 +30,9 @@ function index() {
   const sixthLetterWidth = RIASEC.sixthLetter.value + "%";
 
   return (
-    <div className="flex flex-col justify-center items-center gap-7 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards w-[100%] lg:w-[750px]">
-      <h1 className="text-3xl mt-5">{resultsText.title}</h1>
-      <div className="text-xl ">
+    <PageContainer>
+      <Heading>{resultsText.title}</Heading>
+      <div className="text-xl">
         {resultsText.RIASECLetterResult} <b>{RIASEC.firstLetter.letter}</b> -{" "}
         <b>{RIASEC.secondLetter.letter}</b> - <b>{RIASEC.thirdLetter.letter}</b>
       </div>
@@ -150,7 +152,7 @@ function index() {
           </Progress>
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 }
 

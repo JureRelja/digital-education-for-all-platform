@@ -7,6 +7,7 @@ import InitialTestPage from "../pages/InitialTestPage";
 import CoursesPage from "../pages/CoursesPage";
 import CourseContent from "../pages/CourseContent";
 import JobSuggestionsPage from "../pages/JobSuggestionsPage";
+import CertificatesPage from "../pages/CertificatesPage";
 
 function Router() {
   const routes = [
@@ -42,6 +43,10 @@ function Router() {
         {
           path: "job-suggestions",
           element: <JobSuggestionsPage />,
+        },
+        {
+          path: "certificates",
+          element: <CertificatesPage />,
         },
       ],
     },

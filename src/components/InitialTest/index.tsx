@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeCoursesOrder } from "../../stores/userSlice";
 import { database } from "../../firebase";
 import { ref, update } from "firebase/database";
+import PageContainer from "../PageContainer";
+import Heading from "../../components/Heading";
 
 function index() {
   const navigate = useNavigate(); //Navigation hook
@@ -106,12 +108,10 @@ function index() {
   };
 
   return (
-    <div className="flex flex-col items-center w-full text-center">
-      <h1 className="text-3xl mt-5 text-bold text-center w-full">
-        {initialTestPageTextEng.title}
-      </h1>
-      <div className="flex flex-col gap-3 items-center bg-white rounded-lg shadow-sm mt-4 w-fit md:w-[50%] max-w-[500px]">
-        <div className="flex items-center justify-center">
+    <PageContainer>
+      <Heading>{initialTestPageTextEng.title}</Heading>
+      <div className="flex flex-col gap-3 items-center bg-white rounded-lg shadow-sm mt-4 w-full">
+        <div className="flex items-center justify-center w-full text-center">
           <h2 className="text-xl text-bold border-b w-full border-slate-200/60 px-7 py-4 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
             {questions[questionIndex].title}
           </h2>
@@ -142,6 +142,7 @@ function index() {
               variant="success"
               className="mb-2 text-md text-white w-fit"
               onClick={submitInitialTest}
+              disabled={activeAnswer == ""}
             >
               {initialTestPageTextEng.endButtonText}
             </Button>
@@ -150,13 +151,14 @@ function index() {
               variant="primary"
               className="mb-2 text-md w-fit"
               onClick={nextQuestion}
+              disabled={activeAnswer == ""}
             >
               {initialTestPageTextEng.nextButtonText}
             </Button>
           )}
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 }
 

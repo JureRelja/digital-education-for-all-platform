@@ -8,6 +8,8 @@ import { changeRIASEC } from "../../stores/userSlice";
 import FormSwitch from "../../base-components/Form/FormSwitch";
 import useText from "../../hooks/textLanguage";
 import { useNavigate } from "react-router-dom";
+import Heading from "../Heading";
+import PageContainer from "../PageContainer";
 
 function index() {
   const dispatch = useDispatch();
@@ -153,39 +155,39 @@ function index() {
   };
 
   return (
-    <div className="flex flex-col gap-6 items-center opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
-      <h1 className="text-3xl mt-5 text-bold">Initial test</h1>
-      <div className="flex flex-col justify-center items-center gap-5 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
+    <PageContainer>
+      <Heading>Initial test</Heading>
+      <div className="flex flex-col gap-3 items-center bg-white px-7 py-4 rounded-lg shadow-sm mt-4 w-full opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
         {currentQuestions.map((question: any) => (
           <div
             key={question.question}
-            className="flex justify-between w-full items-center opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards"
+            className="flex justify-between w-full items-center gap-3 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards border-b-slate-100 border-b-[1px]"
           >
-            <h3 className="text-lg mr-5">{question.question}</h3>
-            <div>
-              <FormSwitch className="flex gap-3">
-                <FormSwitch.Label
-                  htmlFor={`checkbox-${question.question}`}
-                  className="font-bold"
-                >
-                  {jobSuggestionText.no}
-                </FormSwitch.Label>
-                <FormSwitch.Input
-                  id={`checkbox-${question.question}`}
-                  type="checkbox"
-                  className="ml-1"
-                  onChange={(event) =>
-                    switchHandler(event.target.checked, question.letter)
-                  }
-                />
-                <FormSwitch.Label
-                  htmlFor={`checkbox-${question.question}`}
-                  className="font-bold"
-                >
-                  {jobSuggestionText.yes}
-                </FormSwitch.Label>
-              </FormSwitch>
-            </div>
+            <h2 className="text-lg text-bold py-4 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
+              {question.question}
+            </h2>
+            <FormSwitch className="flex gap-3">
+              <FormSwitch.Label
+                htmlFor={`checkbox-${question.question}`}
+                className="font-bold"
+              >
+                {jobSuggestionText.no}
+              </FormSwitch.Label>
+              <FormSwitch.Input
+                id={`checkbox-${question.question}`}
+                type="checkbox"
+                className="ml-1"
+                onChange={(event) =>
+                  switchHandler(event.target.checked, question.letter)
+                }
+              />
+              <FormSwitch.Label
+                htmlFor={`checkbox-${question.question}`}
+                className="font-bold"
+              >
+                {jobSuggestionText.yes}
+              </FormSwitch.Label>
+            </FormSwitch>
           </div>
         ))}
         {currentPage <
@@ -207,7 +209,7 @@ function index() {
           </Button>
         )}
       </div>
-    </div>
+    </PageContainer>
   );
 }
 

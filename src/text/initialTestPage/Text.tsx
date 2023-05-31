@@ -1,11 +1,14 @@
 export const initialTestPageTextEng = {
   title: "Initial test",
+  seeCoursesButtonText: "See courses",
   startButtonText: "Start the initial test",
   nextButtonText: "Next question",
   endButtonText: "Submit initial test",
-  paragraph1: `m ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt non magna sed facilisis.  ur adipiscing elit. Maecenas tincidunt non magna sed fac Donec placerat nibh ut dolor aliquet, id aliquam est ornare. Morbi et fringilla`,
-  paragraph2: `Pellentesque vehicula ex sit amet tincidunt tincidunt. Mauris pretium ur adipiscing elit. Maecenas tincidunt non magna sed fac odio purus, at eleifend justo interdum ac. Mauris vehicula, arcu a malesuada volutpa`,
-  paragraph3: `uisque porta maximus lacus a molestie. Aliquam suscipit ligula felis, ur adipiscing elit. Maecenas tincidunt non magna sed fac vitae suscipit tellus vestibulum eu. In et mauris metus. Cras a commodo eni.`,
+  paragraph1: `The initial test consists of 50
+  questions, and you have to answer each one. Only one of the offered answers is correct.`,
+  paragraph2: `Your score on this test will help us determine which courses are most suitable for you.`,
+  completedParagraph: `You have already completed the initial
+  test.`,
   questions: [
     {
       title: "What is a computer?",

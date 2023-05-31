@@ -175,7 +175,7 @@ function Main() {
             {/* END: Login Info */}
             {/* BEGIN: Login Form */}
             <div className="flex py-5 my-10 xl:h-auto xl:py-0 xl:my-0 flex-col gap-2 justify-center items-center">
-              <div className="w-full flex flex-col align-bottom justify-center px-5 py-8 mx-auto my-auto bg-white rounded-md shadow-md xl:bg-transparent sm:px-8 xl:p-0 xl:shadow-none sm:w-3/4 lg:w-2/4 xl:w-full xl:h-full">
+              <div className="w-full flex flex-col align-top justify-center px-5 py-8 mx-auto my-auto bg-white rounded-md shadow-md xl:bg-transparent sm:px-8 xl:p-0 xl:shadow-none sm:w-3/4 lg:w-2/4 xl:w-full xl:h-full">
                 <div className="flex flex-col gap-3">
                   <h2 className="text-2xl font-bold text-center intro-x xl:text-3xl xl:text-center">
                     {loginPageText.title}
@@ -193,7 +193,7 @@ function Main() {
 
                 {/* Login from start */}
                 <form
-                  className="mt-8 intro-x flex flex-col justify-center gap-4"
+                  className="mt-4 intro-x flex flex-col justify-center gap-3"
                   onSubmit={handleSubmit}
                 >
                   <div className="flex justify-center items-center xl:gap-4 xl:flex-row flex-col">

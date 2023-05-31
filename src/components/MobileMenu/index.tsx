@@ -58,6 +58,7 @@ function Main() {
               className="w-6"
               src={logoUrl}
             />
+            <span className="ml-3 text-lg text-white"> Educate Me </span>
           </div>
           <a href="#" onClick={(e) => e.preventDefault()}>
             <Lucide
@@ -101,18 +102,14 @@ function Main() {
                 <Divider as="li" className="my-6" key={menuKey}></Divider>
               ) : (
                 <div key={menuKey}>
-                  {(menu.title === "Initial test" && initialTestStatus) ||
-                  (menu.title === "Certificates" && !initialTestStatus) ||
-                  (menu.title === "Courses" && !initialTestStatus) ? null : (
-                    <li key={menuKey}>
-                      <Menu
-                        menu={menu}
-                        formattedMenuState={[formattedMenu, setFormattedMenu]}
-                        level="first"
-                        setActiveMobileMenu={setActiveMobileMenu}
-                      ></Menu>
-                    </li>
-                  )}
+                  <li key={menuKey}>
+                    <Menu
+                      menu={menu}
+                      formattedMenuState={[formattedMenu, setFormattedMenu]}
+                      level="first"
+                      setActiveMobileMenu={setActiveMobileMenu}
+                    ></Menu>
+                  </li>
                 </div>
               )
             )}
