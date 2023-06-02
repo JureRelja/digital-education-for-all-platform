@@ -1,13 +1,13 @@
-import { course1ContentEn } from "../coursesContent/1_Communication_skills/course";
-import { course2ContentEn } from "../coursesContent/2_Active_listening/course";
-import { course3ContentEn } from "../coursesContent/3_Basic_english/course";
-import { course4ContentEn } from "../coursesContent/4_Basics_of_IT/course";
-import { course5ContentEn } from "../coursesContent/5_Skills_needed_in_the_labor_market/course";
-import { course6ContentEn } from "../coursesContent/6_How_to_look_for_a_job_via_the_internet/course";
-import { course7ContentEn } from "../coursesContent/7_Cybersecurity/course";
-import { course8ContentEn } from "../coursesContent/8_E_citizen/course";
-import { course9ContentEn } from "../coursesContent/9_Project_thinking/course";
-import { course10ContentEn } from "../coursesContent/10_Development_and_implementation_of_non_institutional_social_services/course";
+import { course1ContentEn } from "../../assets/coursesContent/1_Communication_skills/course";
+import { course2ContentEn } from "../../assets/coursesContent/2_Active_listening/course";
+import { course3ContentEn } from "../../assets/coursesContent/3_Basic_english/course";
+import { course4ContentEn } from "../../assets/coursesContent/4_Basics_of_IT/course";
+import { course5ContentEn } from "../../assets/coursesContent/5_Skills_needed_in_the_labor_market/course";
+import { course6ContentEn } from "../../assets/coursesContent/6_How_to_look_for_a_job_via_the_internet/course";
+import { course7ContentEn } from "../../assets/coursesContent/7_Cybersecurity/course";
+import { course8ContentEn } from "../../assets/coursesContent/8_E_citizen/course";
+import { course9ContentEn } from "../../assets/coursesContent/9_Project_thinking/course";
+import { course10ContentEn } from "../../assets/coursesContent/10_Development_and_implementation_of_non_institutional_social_services/course";
 
 export const coursesEng = [
   {

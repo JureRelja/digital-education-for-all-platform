@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { pdfjs, Document, Page } from "react-pdf";
 import useText from "../../hooks/textLanguage";
-import { PDFVieverEng } from "../../text/pdfViever";
+import { PDFVieverEng } from "../../text/pdfViever/text";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import type { PDFDocumentProxy } from "pdfjs-dist";
@@ -19,7 +19,7 @@ const options = {
 };
 
 export default function Sample(props: any) {
-  const [numPages, setNumPages] = useState<number>();
+  const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
 
   const pdfVieverText = useText(
@@ -47,7 +47,7 @@ export default function Sample(props: any) {
       <Button
         onClick={goToPrevPage}
         variant="primary"
-        className="px-2 py-3 xl:w-fit text-center"
+        className="px-3 py-3 xl:w-fit text-center"
       >
         {" "}
         <Lucide icon="ArrowLeft" className="w-4 h-4 mr-2" />
@@ -68,7 +68,7 @@ export default function Sample(props: any) {
       <Button
         onClick={goToNextPage}
         variant="primary"
-        className="px-2 py-3 xl:w-fit text-center"
+        className="px-3 py-3 xl:w-fit text-center"
       >
         {pdfVieverText.next}
         <Lucide icon="ArrowRight" className="w-4 h-4 ml-2" />

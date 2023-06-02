@@ -6,6 +6,7 @@ import { coursesEng, coursesHr } from "../../text/courses/Courses";
 import useText from "../../hooks/textLanguage";
 import Heading from "../../components/Heading";
 import PageContainer from "../../components/PageContainer";
+import PDFViever from "../../components/PDFViever";
 
 function index() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ function index() {
   return (
     <PageContainer>
       <Heading>{course.title}</Heading>
-      <h2>{course.id}</h2>
+      <PDFViever file={course.content.pdf} />
     </PageContainer>
   );
 }
