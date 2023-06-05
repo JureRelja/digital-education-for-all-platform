@@ -65,12 +65,15 @@ function Main() {
   };
 
   const authUser = () => {
-    const userCode =
+    const userCode = (
       firstName.toLocaleLowerCase() +
       lastName.toLocaleLowerCase() +
       year +
       month +
-      day; // Creating userCode
+      day
+    )
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, ""); // Creating userCode
 
     const userData = {
       firstName: firstName,

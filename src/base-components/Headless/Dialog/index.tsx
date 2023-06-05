@@ -8,10 +8,11 @@ const dialogContext = createContext<{
   open: boolean;
   zoom: boolean;
   size: Size;
+  center?: boolean;
 }>({
   open: false,
   zoom: false,
-  size: "md",
+  size: "lg",
 });
 
 function Dialog({
@@ -21,7 +22,7 @@ function Dialog({
   open = false,
   onClose,
   staticBackdrop,
-  size = "md",
+  size = "lg",
   ...props
 }: ExtractProps<typeof HeadlessDialog> & {
   size?: Size;
@@ -97,11 +98,10 @@ Dialog.Panel = ({
         <HeadlessDialog.Panel
           as={as}
           className={twMerge([
-            "w-[90%] mx-auto bg-white relative rounded-md shadow-md transition-transform dark:bg-darkmode-600",
+            "w-[100%] mx-auto bg-white relative rounded-md shadow-md transition-transform overflow-scroll xl:overflow-hidden top-[50%] translate-y-[-50%] lg:top-0 lg:translate-y-0",
             dialog.size == "md" && "sm:w-[460px]",
-            dialog.size == "sm" && "sm:w-[300px]",
-            dialog.size == "lg" && "sm:w-[600px]",
-            dialog.size == "xl" && "sm:w-[600px] lg:w-[900px]",
+            dialog.size == "sm" && "w-full md:w-fit ",
+            dialog.size == "lg" && "w-full md:w-fit",
             dialog.zoom && "scale-105",
             className,
           ])}

@@ -109,12 +109,12 @@ function Main() {
 
                     <FormCheck className="mt-2 mr-2 sm:mt-0">
                       <FormCheck.Input
-                        id="radio-sl"
+                        id="radio-si"
                         type="radio"
-                        value="sl"
+                        value="si"
                         onChange={(e) => handleLanguageChange(e.target.value)}
                       />
-                      <FormCheck.Label htmlFor="radio-sl">
+                      <FormCheck.Label htmlFor="radio-si">
                         <div className="border-slate-300 border-[2px] flex justify-center items-center h-6 w-[31px] xl:h-12 xl:w-[63px]">
                           <span className="fi fi-si hover:opacity-80 transition-all ease-in-out cursor-pointer w-full h-full"></span>
                         </div>
