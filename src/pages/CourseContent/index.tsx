@@ -92,7 +92,7 @@ function index() {
         <Button
           variant="success"
           className="mb-2 mr-2 text-md text-white"
-          onClick={() => navigate("#")}
+          onClick={() => navigate("test")}
         >
           Take the test
           <Lucide icon="Edit" className="w-4 h-4 ml-2" />

@@ -8,6 +8,7 @@ import CoursesPage from "../pages/CoursesPage";
 import CourseContent from "../pages/CourseContent";
 import JobSuggestionsPage from "../pages/JobSuggestionsPage";
 import CertificatesPage from "../pages/CertificatesPage";
+import CourseTest from "../pages/CourseTest";
 
 function Router() {
   const routes = [
@@ -37,6 +38,10 @@ function Router() {
             {
               path: ":courseID",
               element: <CourseContent />,
+            },
+            {
+              path: ":courseID/test",
+              element: <CourseTest />,
             },
           ],
         },

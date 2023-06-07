@@ -9,8 +9,6 @@ const useText = (
 ) => {
   const language = useSelector((state: any) => state.language);
 
-  console.log(language);
-
   if (language == "en") {
     return enText;
   } else if (language == "hr") {

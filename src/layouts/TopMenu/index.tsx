@@ -154,7 +154,6 @@ function MenuLink(props: {
   const navigate = useNavigate();
   let language = useSelector((state: any) => state.language.len);
 
-  console.log(language);
   return (
     <a
       href={props.menu.subMenu ? "#" : props.menu.pathname}
