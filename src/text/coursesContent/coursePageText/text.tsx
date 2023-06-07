@@ -8,5 +8,6 @@ export const coursePageTextEn = {
   resources: "Resources for learning",
   about: "About the course",
   duration: "Duration: ",
+  skills: "Skills you will learn: ",
   finished: "Finished learning? Take the test!",
 };

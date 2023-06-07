@@ -37,15 +37,21 @@ function index() {
       <Heading>{course.title}</Heading>
       <div className="flex gap-5 flex-col md:flex-row justify-center items-center">
         <div>{course.content.img}</div>
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards pb-1 border-b-slate-300 border-b-[1px] mb-4 w-full text-center">
+        <div className="flex flex-col gap-2 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
+          <h2 className="text-xl pb-1 border-b-slate-300 border-b-[1px] mb-2 w-full text-center">
             {coursePageText.about}
           </h2>
           <p className="text-left text-lg">{course.content.text}</p>
-          <p className="text-left text-lg">
-            <b>{coursePageText.duration}</b>
-            {course.content.duration}
-          </p>
+
+          <div className="flex justify-left items-center gap-1">
+            <div className="flex justify-left items-center gap-2">
+              <Lucide icon="Clock" className="w-4 h-4 " />
+              <p className="text-left text-lg font-bold">
+                {coursePageText.duration}
+              </p>
+            </div>
+            <p className="text-left text-lg"> {course.content.duration}</p>
+          </div>
         </div>
       </div>
 

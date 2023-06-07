@@ -34,5 +34,7 @@ export const course1ContentEn = {
   img: <img src={course1Img} className="rounded-lg shadow-md" />,
   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sem tincidunt mauris pulvinar condimentum. Nunc luctus tristique ligula ac accumsan. Maecenas vestibulum, elit sit amet tincidunt scelerisque,`,
   duration: "1h 30min",
+  skills:
+    "Communicating with strangers, approaching people, public speaking, etc.",
 };
 //First course end

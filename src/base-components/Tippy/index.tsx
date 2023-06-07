@@ -4,7 +4,9 @@ import tippy, {
   Props,
   roundArrow,
   animateFill as animateFillPlugin,
+  delegate,
 } from "tippy.js";
+
 import clsx from "clsx";
 
 type TippyProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
@@ -61,9 +63,7 @@ const Tippy = <C extends React.ElementType = "span">(props: TippyProps<C>) => {
       ref={tippyRef}
       className={clsx(["cursor-pointer", className])}
       {...computedProps}
-    >
-      {props.children}
-    </Component>
+    ></Component>
   );
 };
 

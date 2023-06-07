@@ -9,6 +9,7 @@ export interface Menu {
   pathname?: string;
   subMenu?: Menu[];
   ignore?: boolean;
+  helpText?: string;
 }
 
 export interface TopMenuState {
@@ -21,7 +22,7 @@ const initialState: TopMenuState = {
       icon: "Edit",
       title: "Initial test",
       pathname: "/dashboard/initial-test",
-      
+      helpText: "This is a help text",
     },
     {
       icon: "FileText",

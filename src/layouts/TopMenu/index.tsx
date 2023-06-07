@@ -12,7 +12,9 @@ import bannersUrl from "../../assets/Visibility_1.png";
 import { useSelector } from "react-redux";
 import { topMenuTextEng } from "../../text/topMenu/Text";
 import useText from "../../hooks/textLanguage";
-import Breadcrumb from "../../base-components/Breadcrumb";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css"; // optional
+import Button from "../../base-components/Button";
 
 function Main() {
   const location = useLocation();
@@ -20,6 +22,8 @@ function Main() {
   const [formattedMenu, setFormattedMenu] = useState<Array<FormattedMenu>>([]);
   const topMenuStore = useAppSelector(selectTopMenu);
   const topMenu = () => nestedMenu(topMenuStore, location);
+
+  const [helpText, setHelpText] = useState<string>(""); // Help text for the top menu
 
   const topMenuText = useText(
     topMenuTextEng,
@@ -40,14 +44,36 @@ function Main() {
     }
   }, [userCode]);
 
-  // Checkin if the user completed the initial test to know whether to hide it from the menu or not
-  const initialTestStatus = useSelector(
-    (state: any) => state.user.initialTestCompleted
-  );
-
   useEffect(() => {
     setFormattedMenu(topMenu());
   }, [topMenuStore, location.pathname]);
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/dashboard":
+        setHelpText(topMenuText.home);
+        break;
+      case "/dashboard/courses":
+        setHelpText(topMenuText.coursesHelpText);
+        break;
+      case "/dashboard/initial-test":
+        setHelpText(topMenuText.initialTestHelpText);
+        break;
+      case "/dashboard/job-suggestions":
+        setHelpText(topMenuText.jobSuggestionsHelpText);
+        break;
+      case "/dashboard/certificates":
+        setHelpText(topMenuText.certificatesHelpText);
+        break;
+    }
+
+    if (
+      parseInt(location.pathname.slice(-1)) <= 10 ||
+      parseInt(location.pathname.slice(-1)) >= 1
+    ) {
+      setHelpText(topMenuText.coursesContentHelpText);
+    }
+  }, [location.pathname]);
 
   return (
     <div className="py-2">
@@ -78,10 +104,13 @@ function Main() {
           {/* END: Breadcrumb  */}
 
           {/* BEGIN: Welcome {firstName} + {lastName} */}
-          <div className="h-full md:pl-5 md:border-l border-white/[0.08] flex justify-center items-center text-white intro-x">
-            <h2>
+          <div className="h-full md:pl-5 md:border-l border-white/[0.08] flex justify-between items-center w-full md:w-fit text-white intro-x">
+            <h2 className="mr-5">
               {topMenuText.welcome} {firstName} {lastName}!
             </h2>
+            <Tippy content={<span>{helpText}</span>} trigger="click">
+              <Button variant="warning">{topMenuText.needHelp}</Button>
+            </Tippy>
           </div>
           {/* END: Welcome {firstName} + {lastName} */}
         </div>
