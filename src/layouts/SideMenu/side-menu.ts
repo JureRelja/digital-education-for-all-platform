@@ -38,7 +38,11 @@ const nestedMenu = (menu: Array<Menu | "divider">, location: Location) => {
     if (typeof item !== "string") {
       const menuItem: FormattedMenu = {
         icon: item.icon,
-        title: item.title,
+        titleEn: item.titleEn,
+        titleHr: item.titleHr,
+        titleSl: item.titleSl,
+        titlePl: item.titlePl,
+        titleCz: item.titleCz,
         pathname: item.pathname,
         subMenu: item.subMenu,
         ignore: item.ignore,

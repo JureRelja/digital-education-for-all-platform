@@ -1,4 +1,4 @@
-export const loginPageTextEng = {
+export const loginPageTextEn = {
   firstParagraph: `Please make sure to enter correct personal information.`,
   secondParagraph: `We will use this information for certificate creation and to identify you next time you choose to visit this application.`,
   thirdParagraph: `All your personal data collected here will be used solely to improve your experience in this application and will not be

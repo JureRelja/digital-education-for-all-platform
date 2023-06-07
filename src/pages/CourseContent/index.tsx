@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { coursesEng, coursesHr } from "../../text/courses/Courses";
+import { coursesEn, coursesHr } from "../../text/courses/Courses";
 import useText from "../../hooks/textLanguage";
 import Heading from "../../components/Heading";
 import PageContainer from "../../components/PageContainer";
@@ -15,11 +14,11 @@ function index() {
   const { courseID } = useParams();
 
   const courseLanguage = useText(
-    coursesEng,
+    coursesEn,
     coursesHr,
-    coursesEng,
-    coursesEng,
-    coursesEng
+    coursesEn,
+    coursesEn,
+    coursesEn
   );
 
   const coursePageText = useText(

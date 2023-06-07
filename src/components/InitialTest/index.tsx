@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "../../base-components/Button";
-import { initialTestPageTextEng } from "../../text/initialTestPage/Text";
+import { initialTestPageTextEn } from "../../text/initialTestPage/Text";
 import { useDispatch, useSelector } from "react-redux";
 import { changeCoursesOrder } from "../../stores/userSlice";
 import { database } from "../../firebase";
 import { ref, update } from "firebase/database";
 import PageContainer from "../PageContainer";
 import Heading from "../../components/Heading";
+import useText from "../../hooks/textLanguage";
 
 function index() {
   const navigate = useNavigate(); //Navigation hook
@@ -15,7 +16,15 @@ function index() {
 
   const userCode = useSelector((state: any) => state.user.userCode); //User code
 
-  const questions = initialTestPageTextEng.questions; //Initial test questions
+  const initialTestPageText = useText(
+    initialTestPageTextEn,
+    initialTestPageTextEn,
+    initialTestPageTextEn,
+    initialTestPageTextEn,
+    initialTestPageTextEn
+  );
+
+  const questions = initialTestPageText.questions; //Initial test questions
 
   const [questionIndex, setQuestionIndex] = useState(0); //Index of the current question
   const [activeAnswer, setActiveAnswer] = useState(""); //Active answer
@@ -109,7 +118,7 @@ function index() {
 
   return (
     <PageContainer>
-      <Heading>{initialTestPageTextEng.title}</Heading>
+      <Heading>{initialTestPageText.title}</Heading>
       <div className="flex flex-col gap-3 items-center bg-white rounded-lg shadow-sm mt-4 w-full">
         <div className="flex items-center justify-center w-full text-center">
           <h2 className="text-xl text-bold border-b w-full border-slate-200/60 px-7 py-4 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
@@ -117,7 +126,7 @@ function index() {
           </h2>
         </div>
         <div className="flex flex-col gap-5 text-center w-full px-7 py-4 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
-          {questions[questionIndex].answers.map((answer) =>
+          {questions[questionIndex].answers.map((answer: string) =>
             answer == activeAnswer ? (
               <div
                 key={answer}
@@ -144,7 +153,7 @@ function index() {
               onClick={submitInitialTest}
               disabled={activeAnswer == ""}
             >
-              {initialTestPageTextEng.endButtonText}
+              {initialTestPageText.endButtonText}
             </Button>
           ) : (
             <Button
@@ -153,7 +162,7 @@ function index() {
               onClick={nextQuestion}
               disabled={activeAnswer == ""}
             >
-              {initialTestPageTextEng.nextButtonText}
+              {initialTestPageText.nextButtonText}
             </Button>
           )}
         </div>

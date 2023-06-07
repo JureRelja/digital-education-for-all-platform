@@ -1,4 +1,4 @@
-export const initialTestPageTextEng = {
+export const initialTestPageTextEn = {
   title: "Initial test",
   seeCoursesButtonText: "See courses",
   startButtonText: "Start the initial test",

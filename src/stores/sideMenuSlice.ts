@@ -4,7 +4,11 @@ import { icons } from "../base-components/Lucide";
 
 export interface Menu {
   icon: keyof typeof icons;
-  title: string;
+  titleEn: string;
+  titleHr?: string;
+  titleSl?: string;
+  titlePl?: string;
+  titleCz?: string;
   pathname?: string;
   subMenu?: Menu[];
   ignore?: boolean;
@@ -18,90 +22,40 @@ const initialState: SideMenuState = {
   menu: [
     {
       icon: "Edit",
-      title: "Initial test",
+      titleEn: "Initial test",
+      titleHr: "Početni test",
+      titleSl: "Začetni test",
+      titlePl: "Test początkowy",
+      titleCz: "Počáteční test",
       pathname: "/dashboard/initial-test",
     },
     {
       icon: "FileText",
-      title: "Courses",
-      pathname: "/dashboard/courses",
+      titleEn: "Courses",
+      titleHr: "Kursevi",
+      titleSl: "Kursi",
+      titlePl: "Kursy",
+      titleCz: "Kurzy",
+      pathname: "/dashboard/courses", 
     },
     {
       icon: "Archive",
-      title: "Certificates",
+      titleEn: "Certificates",
+      titleHr: "Certifikati",
+      titleSl: "Certifikati",
+      titlePl: "Certyfikaty",
+      titleCz: "Certifikáty",
       pathname: "/dashboard/certificates",
     },
     {
       icon: "Users",
-      title: "Job Suggestions",
+      titleEn: "Job Suggestions",
+      titleHr: "Poslovi",
+      titleSl: "Delovna mesta",
+      titlePl: "Oferty pracy",
+      titleCz: "Pracovní nabídky",
       pathname: "/dashboard/job-suggestions",
     }
-    // {
-    //   icon: "Home",
-    //   title: "Dashboard",
-    //   pathname: "/",
-    // },
-    // {
-    //   icon: "Box",
-    //   title: "Menu Layout",
-     
-    // },
-    // {
-    //   icon: "ShoppingBag",
-    //   title: "E-Commerce",
-     
-    // },
-    // {
-    //   icon: "Inbox",
-    //   pathname: "/inbox",
-    //   title: "Inbox",
-    // },
-    // {
-    //   icon: "HardDrive",
-    //   pathname: "/file-manager",
-    //   title: "File Manager",
-    // },
-    // {
-    //   icon: "CreditCard",
-    //   pathname: "/point-of-sale",
-    //   title: "Point of Sale",
-    // },
-    // {
-    //   icon: "MessageSquare",
-    //   pathname: "/chat",
-    //   title: "Chat",
-    // },
-    // {
-    //   icon: "FileText",
-    //   pathname: "/post",
-    //   title: "Post",
-    // },
-    // {
-    //   icon: "Calendar",
-    //   pathname: "/calendar",
-    //   title: "Calendar",
-    // },
-    // "divider",
-    // {
-    //   icon: "Edit",
-    //   title: "Crud",
-    
-    // },
-    // {
-    //   icon: "Users",
-    //   title: "Users",
-      
-    // },
-    // {
-    //   icon: "Trello",
-    //   title: "Profile",
-     
-    // },
-    // {
-    //   icon: "Layout",
-    //   title: "Pages",
-     
-    // }
   ],
 };
 

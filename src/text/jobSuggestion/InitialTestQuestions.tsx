@@ -1,4 +1,4 @@
-export const initialTestQuestionsEng = {
+export const initialTestQuestionsEn = {
   questions: [
     {
       question: "I like to work on cars.",

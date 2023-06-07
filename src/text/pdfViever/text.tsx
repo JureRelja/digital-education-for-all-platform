@@ -1,4 +1,4 @@
-export const PDFVieverEng = {
+export const PDFVieverEn = {
   page: `Page`,
   prev: `Previous page`,
   next: `Next page`,

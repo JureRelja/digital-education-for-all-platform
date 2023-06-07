@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import Lucide from "../../base-components/Lucide";
 import Table from "../../base-components/Table";
-import { coursesEng } from "../../text/courses/Courses";
-import { coursesPageTextEng } from "../../text/courses/CoursesPageText";
+import { coursesEn } from "../../text/courses/Courses";
+import { coursesPageTextEn } from "../../text/courses/CoursesPageText";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import useText from "../../hooks/textLanguage";
@@ -17,7 +17,13 @@ function index() {
   const initialTestCompleted = useSelector(
     (state: any) => state.user.initialTestCompleted
   ); //Initial test completed
-  const courses = coursesEng; //Courses
+  const courses = useText(
+    coursesEn,
+    coursesEn,
+    coursesEn,
+    coursesEn,
+    coursesEn
+  ); //Courses
 
   const orderedCourses = coursesOrder.map((order: any) => {
     const newOrdCourse = courses.find((course: any) => course.id == order);
@@ -25,11 +31,11 @@ function index() {
   }); //Ordered courses
 
   const coursesPageText = useText(
-    coursesPageTextEng,
-    coursesPageTextEng,
-    coursesPageTextEng,
-    coursesPageTextEng,
-    coursesPageTextEng
+    coursesPageTextEn,
+    coursesPageTextEn,
+    coursesPageTextEn,
+    coursesPageTextEn,
+    coursesPageTextEn
   ); //Courses page text
 
   return (

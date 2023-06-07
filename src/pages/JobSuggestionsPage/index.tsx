@@ -1,4 +1,4 @@
-import { initialTestInfoTxtEng } from "../../text/jobSuggestion/InitialTestInfo";
+import { initialTestInfoTxtEn } from "../../text/jobSuggestion/InitialTestInfo";
 import Button from "../../base-components/Button";
 import Lucide from "../../base-components/Lucide";
 import { useState } from "react";
@@ -15,11 +15,11 @@ function InitialTestPage() {
   const userRIASEC = useSelector((state: any) => state.user.RIASEC.completed);
 
   const jobSuggestionText = useText(
-    initialTestInfoTxtEng,
-    initialTestInfoTxtEng,
-    initialTestInfoTxtEng,
-    initialTestInfoTxtEng,
-    initialTestInfoTxtEng
+    initialTestInfoTxtEn,
+    initialTestInfoTxtEn,
+    initialTestInfoTxtEn,
+    initialTestInfoTxtEn,
+    initialTestInfoTxtEn
   );
 
   return (

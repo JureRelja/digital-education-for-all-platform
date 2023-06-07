@@ -5,12 +5,16 @@ import { icons } from "../base-components/Lucide";
 
 export interface Menu {
   icon: keyof typeof icons;
-  title: string;
+  titleEn: string;
+  titleHr?: string;
+  titleSl?: string;
+  titlePl?: string;
+  titleCz?: string;
   pathname?: string;
   subMenu?: Menu[];
   ignore?: boolean;
-  helpText?: string;
 }
+
 
 export interface TopMenuState {
   menu: Array<Menu>;
@@ -20,96 +24,94 @@ const initialState: TopMenuState = {
   menu: [
     {
       icon: "Edit",
-      title: "Initial test",
+      titleEn: "Initial test",
+      titleHr: "Početni test",
+      titleSl: "Začetni test",
+      titlePl: "Test początkowy",
+      titleCz: "Počáteční test",
       pathname: "/dashboard/initial-test",
-      helpText: "This is a help text",
     },
     {
       icon: "FileText",
-      title: "Courses",
+      titleEn: "Courses",
+      titleHr: "Kursevi",
+      titleSl: "Kursi",
+      titlePl: "Kursy",
+      titleCz: "Kurzy",
       pathname: "/dashboard/courses",
       subMenu: [
         {
           icon: "FileText",
-          title: "All Courses",
+          titleEn: "All Courses",
+          
           pathname: "/dashboard/courses/1",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/2",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/3",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/4",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/5",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/6",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/7",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/8",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/9",
         },
         {
           icon: "FileText",
-          title: "My Courses",
+          titleEn: "My Courses",
           pathname: "/dashboard/courses/10",
         }
       ]  
     },
     {
       icon: "Archive",
-      title: "Certificates",
+      titleEn: "Certificates",
+      titleHr: "Certifikati",
+      titleSl: "Certifikati",
+      titlePl: "Certyfikaty",
+      titleCz: "Certifikáty",
       pathname: "/dashboard/certificates",
     },
     {
       icon: "Users",
-      title: "Job Suggestions",
+      titleEn: "Job Suggestions",
+      titleHr: "Poslovi",
+      titleSl: "Delovna mesta",
+      titlePl: "Oferty pracy",
+      titleCz: "Pracovní nabídky",
       pathname: "/dashboard/job-suggestions",
     }
         
-    
-    // {
-    //   icon: "Layout",
-    //   title: "Pages",
-    // },
-    // {
-    //   icon: "Inbox",
-    //   title: "Components",
-
-    // },
-    // {
-    //   icon: "Sidebar",
-    //   title: "Forms",
-    // },
-    // {
-    //   icon: "HardDrive",
-    //   title: "Widgets",
-    // },
   ],
 };
 

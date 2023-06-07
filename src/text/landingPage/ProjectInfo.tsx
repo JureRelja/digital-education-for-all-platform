@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-export const projectInfoEng = {
+export const projectInfoEn = {
   title:
     "Digital Education for All - Development of Technology Enhanced Learning for Unemployed Persons",
   projectBeneficiaryBold: "Project Beneficiary:",
@@ -26,7 +26,7 @@ export const projectInfoEng = {
 const ProjectInfoText = () => {
   const language = useSelector((state: any) => state.language);
 
-  let text = projectInfoEng;
+  let text = projectInfoEn;
 
   return text;
 };

@@ -9,7 +9,7 @@ import { course8ContentEn } from "../../text/coursesContent/8_E_citizen/course";
 import { course9ContentEn } from "../../text/coursesContent/9_Project_thinking/course";
 import { course10ContentEn } from "../../text/coursesContent/10_Development_and_implementation_of_non_institutional_social_services/course";
 
-export const coursesEng = [
+export const coursesEn = [
   {
     id: 1,
     title: "Communication skills",

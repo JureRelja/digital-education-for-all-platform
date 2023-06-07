@@ -7,7 +7,9 @@ import { FormattedMenu, linkTo, nestedMenu, enter, leave } from "./side-menu";
 import Lucide from "../../base-components/Lucide";
 import logoUrl from "../../assets/images/logo.svg";
 import clsx from "clsx";
+import TopBar from "../../components/TopBar";
 import MobileMenu from "../../components/MobileMenu";
+
 import SideMenuTooltip from "../../components/SideMenuTooltip";
 import { useSelector } from "react-redux";
 
@@ -29,18 +31,20 @@ function Main() {
       <div className="flex mt-[4.7rem] md:mt-0">
         {/* BEGIN: Side Menu */}
         <nav className="pr-5 pb-16 overflow-x-hidden hidden md:block w-[85px] xl:w-[230px]">
-          <Link to="" className="flex items-center pt-4 pl-5 intro-x">
+          <Link
+            to="/side-menu/dashboard-overview-1"
+            className="flex items-center pt-4 pl-5 intro-x"
+          >
             <img
               alt="Midone Tailwind HTML Admin Template"
               className="w-6"
               src={logoUrl}
             />
             <span className="hidden ml-3 text-lg text-white xl:block">
-              Educate Me
+              Rubick
             </span>
           </Link>
           <Divider type="div" className="my-6"></Divider>
-          {/* prettier-ignore */}
           <ul>
             {/* BEGIN: First Child */}
             {formattedMenu.map((menu, menuKey) =>
@@ -58,19 +62,97 @@ function Main() {
                   key={menuKey}
                 ></Divider>
               ) : (
-                    <li key={menuKey}>
-                      <Menu
-                        className={clsx({
-                          // Animation
-                          [`opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.1s_intro-menu] animate-fill-mode-forwards animate-delay-${
-                            (menuKey + 1) * 10
-                          }`]: !menu.active,
-                        })}
-                        menu={menu}
-                        formattedMenuState={[formattedMenu, setFormattedMenu]}
-                        level="first"
-                      ></Menu>
-                    </li>
+                <li key={menuKey}>
+                  <Menu
+                    className={clsx({
+                      // Animation
+                      [`opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.1s_intro-menu] animate-fill-mode-forwards animate-delay-${
+                        (menuKey + 1) * 10
+                      }`]: !menu.active,
+                    })}
+                    menu={menu}
+                    formattedMenuState={[formattedMenu, setFormattedMenu]}
+                    level="first"
+                  ></Menu>
+                  {/* BEGIN: Second Child */}
+                  {menu.subMenu && (
+                    <Transition
+                      in={menu.activeDropdown}
+                      onEnter={enter}
+                      onExit={leave}
+                      timeout={300}
+                    >
+                      <ul
+                        className={clsx([
+                          "bg-black/10 rounded-lg dark:bg-darkmode-900/30",
+                          { block: menu.activeDropdown },
+                          { hidden: !menu.activeDropdown },
+                        ])}
+                      >
+                        {menu.subMenu.map((subMenu, subMenuKey) => (
+                          <li key={subMenuKey}>
+                            <Menu
+                              className={clsx({
+                                // Animation
+                                [`opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.1s_intro-menu] animate-fill-mode-forwards animate-delay-${
+                                  (subMenuKey + 1) * 10
+                                }`]: !subMenu.active,
+                              })}
+                              menu={subMenu}
+                              formattedMenuState={[
+                                formattedMenu,
+                                setFormattedMenu,
+                              ]}
+                              level="second"
+                            ></Menu>
+                            {/* BEGIN: Third Child */}
+                            {subMenu.subMenu && (
+                              <Transition
+                                in={subMenu.activeDropdown}
+                                onEnter={enter}
+                                onExit={leave}
+                                timeout={300}
+                              >
+                                <ul
+                                  className={clsx([
+                                    "bg-black/10 rounded-lg dark:bg-darkmode-900/30",
+                                    {
+                                      block: subMenu.activeDropdown,
+                                    },
+                                    { hidden: !subMenu.activeDropdown },
+                                  ])}
+                                >
+                                  {subMenu.subMenu.map(
+                                    (lastSubMenu, lastSubMenuKey) => (
+                                      <li key={lastSubMenuKey}>
+                                        <Menu
+                                          className={clsx({
+                                            // Animation
+                                            [`opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.1s_intro-menu] animate-fill-mode-forwards animate-delay-${
+                                              (lastSubMenuKey + 1) * 10
+                                            }`]: !lastSubMenu.active,
+                                          })}
+                                          menu={lastSubMenu}
+                                          formattedMenuState={[
+                                            formattedMenu,
+                                            setFormattedMenu,
+                                          ]}
+                                          level="third"
+                                        ></Menu>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </Transition>
+                            )}
+                            {/* END: Third Child */}
+                          </li>
+                        ))}
+                      </ul>
+                    </Transition>
+                  )}
+                  {/* END: Second Child */}
+                </li>
               )
             )}
             {/* END: First Child */}
@@ -78,7 +160,8 @@ function Main() {
         </nav>
         {/* END: Side Menu */}
         {/* BEGIN: Content */}
-        <div className="rounded-[30px] min-w-0 min-h-screen flex-1 pb-10 bg-white dark:bg-darkmode-700 px-4 md:px-[22px] max-w-full md:max-w-auto before:content-[''] before:w-full before:h-px before:block">
+        <div className="rounded-[30px] min-w-0 min-h-screen flex-1 pb-10 bg-slate-100 dark:bg-darkmode-700 px-4 md:px-[22px] max-w-full md:max-w-auto before:content-[''] before:w-full before:h-px before:block">
+          <TopBar />
           <Outlet />
         </div>
         {/* END: Content */}
@@ -98,11 +181,12 @@ function Menu(props: {
 }) {
   const navigate = useNavigate();
   const [formattedMenu, setFormattedMenu] = props.formattedMenuState;
+  let language = useSelector((state: any) => state.language.len);
 
   return (
     <SideMenuTooltip
       as="a"
-      content={props.menu.title}
+      content={props.menu.titleEn}
       href={props.menu.subMenu ? "#" : props.menu.pathname}
       className={clsx([
         "h-[50px] flex items-center pl-5 text-white mb-1 relative rounded-full",
@@ -157,7 +241,11 @@ function Menu(props: {
           },
         ])}
       >
-        {props.menu.title}
+        {language == "en" && props.menu.titleEn}
+        {language == "hr" && props.menu.titleHr}
+        {language == "sl" && props.menu.titleSl}
+        {language == "cz " && props.menu.titleCz}
+        {language == "pl" && props.menu.titlePl}
         {props.menu.subMenu && (
           <div
             className={clsx([

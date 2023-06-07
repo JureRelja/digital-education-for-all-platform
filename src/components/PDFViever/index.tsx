@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { pdfjs, Document, Page } from "react-pdf";
 import useText from "../../hooks/textLanguage";
-import { PDFVieverEng } from "../../text/pdfViever/text";
+import { PDFVieverEn } from "../../text/pdfViever/text";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import type { PDFDocumentProxy } from "pdfjs-dist";
@@ -24,11 +24,11 @@ export default function Sample(props: any) {
   const [pageNumber, setPageNumber] = useState<number>(1);
 
   const pdfVieverText = useText(
-    PDFVieverEng,
-    PDFVieverEng,
-    PDFVieverEng,
-    PDFVieverEng,
-    PDFVieverEng
+    PDFVieverEn,
+    PDFVieverEn,
+    PDFVieverEn,
+    PDFVieverEn,
+    PDFVieverEn
   );
 
   function onDocumentLoadSuccess({ numPages: nextNumPages }: PDFDocumentProxy) {

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 const useText = (
-  engText: any,
+  enText: any,
   hrText: any,
   slText: any,
   plText: any,
@@ -9,8 +9,10 @@ const useText = (
 ) => {
   const language = useSelector((state: any) => state.language);
 
+  console.log(language);
+
   if (language == "en") {
-    return engText;
+    return enText;
   } else if (language == "hr") {
     return hrText;
   } else if (language == "sl") {
@@ -21,7 +23,7 @@ const useText = (
     return czText;
   }
 
-  return engText;
+  return enText;
 };
 
 export default useText;

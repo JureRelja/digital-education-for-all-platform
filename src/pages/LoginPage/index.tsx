@@ -2,7 +2,7 @@ import logoUrl from "../../assets/images/logo.svg";
 import { FormInput } from "../../base-components/Form";
 import Button from "../../base-components/Button";
 import clsx from "clsx";
-import { loginPageTextEng } from "../../text/loginPage/Text";
+import { loginPageTextEn } from "../../text/loginPage/Text";
 import useText from "../../hooks/textLanguage";
 import { useNavigate } from "react-router-dom";
 import { database } from "../../firebase";
@@ -32,11 +32,11 @@ function Main() {
 
   const loginPageText = useText(
     //Custom hook for getting the right page text
-    loginPageTextEng,
-    loginPageTextEng,
-    loginPageTextEng,
-    loginPageTextEng,
-    loginPageTextEng
+    loginPageTextEn,
+    loginPageTextEn,
+    loginPageTextEn,
+    loginPageTextEn,
+    loginPageTextEn
   );
 
   const [firstName, setFirstName] = useState("");
@@ -229,7 +229,7 @@ function Main() {
                   </div>
                   <div className="flex justify-center items-center xl:gap-4 xl:flex-row flex-col">
                     <FormLabel className="sm:w-24">
-                      {loginPageTextEng.date}
+                      {loginPageText.date}
                     </FormLabel>
                     <div className="flex justify-between items-center w-full xl:w-[300px]">
                       <DayPicker

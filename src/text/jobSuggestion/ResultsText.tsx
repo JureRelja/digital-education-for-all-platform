@@ -1,4 +1,4 @@
-export const resultsTextEng = {
+export const resultsTextEn = {
   title: `Job suggestion test results`,
   RIASECLetterResult: `Your 3-letter RIASEC result:`,
   firstParagraph: `Based on your initial test results, we offer you to attend 10 different courses.`,

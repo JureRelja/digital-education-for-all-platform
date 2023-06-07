@@ -10,7 +10,7 @@ import clsx from "clsx";
 import MobileMenu from "../../components/MobileMenu";
 import bannersUrl from "../../assets/Visibility_1.png";
 import { useSelector } from "react-redux";
-import { topMenuTextEng } from "../../text/topMenu/Text";
+import { topMenuTextEn } from "../../text/topMenu/Text";
 import useText from "../../hooks/textLanguage";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css"; // optional
@@ -26,11 +26,11 @@ function Main() {
   const [helpText, setHelpText] = useState<string>(""); // Help text for the top menu
 
   const topMenuText = useText(
-    topMenuTextEng,
-    topMenuTextEng,
-    topMenuTextEng,
-    topMenuTextEng,
-    topMenuTextEng
+    topMenuTextEn,
+    topMenuTextEn,
+    topMenuTextEn,
+    topMenuTextEn,
+    topMenuTextEn
   );
 
   // Getting user data from redux store
@@ -90,18 +90,6 @@ function Main() {
             />
             <span className="ml-3 text-lg text-white"> Educate Me </span>
           </div>
-
-          {/* BEGIN: Breadcrumb */}
-          {/* <Breadcrumb
-            light
-            className="h-full md:ml-10 md:pl-5 md:border-l border-white/[0.08] mr-auto -intro-x"
-          >
-            <Breadcrumb.Link to="/" active={true}></Breadcrumb.Link>
-            <Breadcrumb.Link to="/" active={true}>
-              fa
-            </Breadcrumb.Link>
-          </Breadcrumb> */}
-          {/* END: Breadcrumb  */}
 
           {/* BEGIN: Welcome {firstName} + {lastName} */}
           <div className="h-full md:pl-5 md:border-l border-white/[0.08] flex justify-between items-center w-full md:w-fit text-white intro-x">
@@ -164,7 +152,9 @@ function MenuLink(props: {
   level: "first" | "second" | "third";
 }) {
   const navigate = useNavigate();
+  let language = useSelector((state: any) => state.language.len);
 
+  console.log(language);
   return (
     <a
       href={props.menu.subMenu ? "#" : props.menu.pathname}
@@ -208,7 +198,11 @@ function MenuLink(props: {
           props.level != "first" && "w-full",
         ])}
       >
-        {props.menu.title}
+        {language == "en" && props.menu.titleEn}
+        {language == "hr" && props.menu.titleHr}
+        {language == "sl" && props.menu.titleSl}
+        {language == "cz " && props.menu.titleCz}
+        {language == "pl" && props.menu.titlePl}
       </div>
     </a>
   );

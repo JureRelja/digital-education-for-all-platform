@@ -28,11 +28,6 @@ function Main() {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const scrollableRef = createRef<HTMLDivElement>();
 
-  // Checkin if the user completed the initial test to know whether to hide it from the menu or not
-  const initialTestStatus = useSelector(
-    (state: any) => state.user.initialTestCompleted
-  );
-
   useEffect(() => {
     if (scrollableRef.current) {
       new SimpleBar(scrollableRef.current);
@@ -134,6 +129,8 @@ function Menu(props: {
   const navigate = useNavigate();
   const [formattedMenu, setFormattedMenu] = props.formattedMenuState;
 
+  const language = useSelector((state: any) => state.language.len);
+
   return (
     <a
       href={props.menu.subMenu ? "#" : props.menu.pathname}
@@ -152,7 +149,11 @@ function Menu(props: {
         <Lucide icon={props.menu.icon} />
       </div>
       <div className="flex items-center w-full ml-3">
-        {props.menu.title}
+        {language == "en" && props.menu.titleEn}
+        {language == "hr" && props.menu.titleHr}
+        {language == "sl" && props.menu.titleSl}
+        {language == "cz " && props.menu.titleCz}
+        {language == "pl" && props.menu.titlePl}
         {props.menu.subMenu && (
           <div
             className={clsx([

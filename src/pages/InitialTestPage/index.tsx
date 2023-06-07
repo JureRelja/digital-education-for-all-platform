@@ -1,4 +1,4 @@
-import { initialTestPageTextEng } from "../../text/initialTestPage/Text";
+import { initialTestPageTextEn } from "../../text/initialTestPage/Text";
 import Button from "../../base-components/Button";
 import Lucide from "../../base-components/Lucide";
 import { useEffect, useState } from "react";
@@ -13,11 +13,11 @@ function InitialTestPage() {
   const navigate = useNavigate();
 
   const initialTestPageText = useText(
-    initialTestPageTextEng,
-    initialTestPageTextEng,
-    initialTestPageTextEng,
-    initialTestPageTextEng,
-    initialTestPageTextEng
+    initialTestPageTextEn,
+    initialTestPageTextEn,
+    initialTestPageTextEn,
+    initialTestPageTextEn,
+    initialTestPageTextEn
   );
 
   const [testStarted, setTestStarted] = useState(false);

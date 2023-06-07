@@ -39,7 +39,11 @@ const nestedMenu = (menu: Array<Menu>, location: Location) => {
   menu.forEach((item) => {
     const menuItem: FormattedMenu = {
       icon: item.icon,
-      title: item.title,
+      titleEn: item.titleEn,
+      titleHr: item.titleHr,
+      titleSl: item.titleSl,
+      titlePl: item.titlePl,
+      titleCz: item.titleCz,
       pathname: item.pathname,
       subMenu: item.subMenu,
       ignore: item.ignore,

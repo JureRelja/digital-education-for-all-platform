@@ -4,17 +4,17 @@ import Button from "../../base-components/Button";
 import Lucide from "../../base-components/Lucide";
 import { useNavigate } from "react-router";
 import useText from "../../hooks/textLanguage";
-import { CertificatesPageTextEng } from "../../text/certificates/text";
+import { CertificatesPageTextEn } from "../../text/certificates/text";
 import PageContainer from "../../components/PageContainer";
 
 function index() {
   const navigate = useNavigate();
   const initialPageText = useText(
-    CertificatesPageTextEng,
-    CertificatesPageTextEng,
-    CertificatesPageTextEng,
-    CertificatesPageTextEng,
-    CertificatesPageTextEng
+    CertificatesPageTextEn,
+    CertificatesPageTextEn,
+    CertificatesPageTextEn,
+    CertificatesPageTextEn,
+    CertificatesPageTextEn
   );
 
   return (

@@ -1,4 +1,4 @@
-export function RIASECTypeEng(letter: string) {
+export function RIASECTypeEn(letter: string) {
   if (letter == "R") {
     return "Realistic (Doers)";
   } else if (letter == "I") {

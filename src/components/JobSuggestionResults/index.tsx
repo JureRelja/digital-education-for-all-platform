@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import Button from "../../base-components/Button";
 import Progress from "../../base-components/Progress";
-import { RIASECTypeEng } from "../../text/jobSuggestion/RIASECType";
-import { resultsTextEng } from "../../text/jobSuggestion/ResultsText";
+import { RIASECTypeEn } from "../../text/jobSuggestion/RIASECType";
+import { resultsTextEn } from "../../text/jobSuggestion/ResultsText";
 import { useNavigate } from "react-router";
 import useText from "../../hooks/textLanguage";
 import Heading from "../../components/Heading";
@@ -12,11 +12,19 @@ function index() {
   const navigate = useNavigate();
 
   const resultsText = useText(
-    resultsTextEng,
-    resultsTextEng,
-    resultsTextEng,
-    resultsTextEng,
-    resultsTextEng
+    resultsTextEn,
+    resultsTextEn,
+    resultsTextEn,
+    resultsTextEn,
+    resultsTextEn
+  );
+
+  const RIASECType = useText(
+    RIASECTypeEn,
+    RIASECTypeEn,
+    RIASECTypeEn,
+    RIASECTypeEn,
+    RIASECTypeEn
   );
 
   const RIASEC = useSelector((state: any) => state.user.RIASEC); //Getting RIASEC store from Redux
@@ -39,7 +47,7 @@ function index() {
       <div className="flex flex-col justify-center items-center gap-4 w-full">
         <div className="flex flex-col justify-center items-center gap-1 w-full">
           <h1 className="text-md font-bold">
-            {RIASECTypeEng(RIASEC.firstLetter.letter)}
+            {RIASECType(RIASEC.firstLetter.letter)}
           </h1>
           <Progress className="h-7 rounded-lg">
             {RIASEC.firstLetter.value == 0 ? (
@@ -58,7 +66,7 @@ function index() {
         </div>
         <div className="flex flex-col justify-center items-center gap-1 w-full">
           <h1 className="text-md font-bold">
-            {RIASECTypeEng(RIASEC.secondLetter.letter)}
+            {RIASECType(RIASEC.secondLetter.letter)}
           </h1>
           <Progress className="h-7 rounded-lg ">
             {RIASEC.secondLetter.value == 0 ? (
@@ -77,7 +85,7 @@ function index() {
         </div>
         <div className="flex flex-col justify-center items-center gap-1 w-full">
           <h1 className="text-md font-bold">
-            {RIASECTypeEng(RIASEC.thirdLetter.letter)}
+            {RIASECType(RIASEC.thirdLetter.letter)}
           </h1>
           <Progress className="h-7 rounded-lg">
             {RIASEC.thirdLetter.value == 0 ? (
@@ -96,7 +104,7 @@ function index() {
         </div>
         <div className="flex flex-col justify-center items-center gap-1 w-full">
           <h1 className="text-md font-bold">
-            {RIASECTypeEng(RIASEC.fourthLetter.letter)}
+            {RIASECType(RIASEC.fourthLetter.letter)}
           </h1>
           <Progress className="h-7 rounded-lg">
             {RIASEC.fourthLetter.value == 0 ? (
@@ -115,7 +123,7 @@ function index() {
         </div>
         <div className="flex flex-col justify-center items-center gap-1 w-full">
           <h1 className="text-md font-bold">
-            {RIASECTypeEng(RIASEC.fifthLetter.letter)}
+            {RIASECType(RIASEC.fifthLetter.letter)}
           </h1>
           <Progress className="h-7 rounded-lg">
             {RIASEC.fifthLetter.value == 0 ? (
@@ -134,7 +142,7 @@ function index() {
         </div>
         <div className="flex flex-col justify-center items-center gap-1 w-full">
           <h1 className="text-md font-bold">
-            {RIASECTypeEng(RIASEC.sixthLetter.letter)}
+            {RIASECType(RIASEC.sixthLetter.letter)}
           </h1>
           <Progress className="h-7 rounded-lg ">
             {RIASEC.sixthLetter.value == 0 ? (
