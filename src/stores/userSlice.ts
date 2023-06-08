@@ -20,7 +20,7 @@ const userSlice = createSlice({
             dateOfBirth: {year: 0, month: 0, day: 0},
         },
         initialTestCompleted: false,
-        coursesOrder: []
+        coursesOrder: [{id: 1, completed: false}, {id: 2, completed: false}, {id: 3, completed: false}, {id: 4, completed: false}, {id: 5, completed: false}, {id: 6, completed: false}, {id: 7, completed: false}, {id: 8, completed: false}, {id: 9, completed: false}, {id: 10, completed: false}]
     },
     reducers: {
         changeRIASEC: (state, action) => {
@@ -39,10 +39,14 @@ const userSlice = createSlice({
         },
         changeCoursesOrder: (state, action) => {
             state.coursesOrder = action.payload
+        },
+        changeCourseStatus: (state, action) => {
+            const courseIndex = action.payload.courseIndex
+            state.coursesOrder[courseIndex].completed = action.payload.completed;
         }
     }
 })
 
-export const { changeRIASEC, changeUserCode, changeUserData, changeInitialTestCompleted, changeCoursesOrder } = userSlice.actions
+export const { changeRIASEC, changeUserCode, changeUserData, changeInitialTestCompleted, changeCoursesOrder, changeCourseStatus } = userSlice.actions
 
 export default userSlice.reducer

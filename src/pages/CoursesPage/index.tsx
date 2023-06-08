@@ -26,7 +26,7 @@ function index() {
   ); //Courses
 
   const orderedCourses = coursesOrder.map((order: any) => {
-    const newOrdCourse = courses.find((course: any) => course.id == order);
+    const newOrdCourse = courses.find((course: any) => course.id == order.id);
     return { ...newOrdCourse, completed: order.completed };
   }); //Ordered courses
 
@@ -118,7 +118,10 @@ function index() {
                     <Table.Td className="first:rounded-l-md last:rounded-r-md md:w-56 bg-white border-b-0 shadow-[20px_3px_20px_#0000000b] py-0 px-2 md:px-4 relative before:block before:w-px before:h-8 before:bg-slate-200 before:absolute before:left-0 before:inset-y-0 before:my-auto">
                       <div className="flex items-center justify-center text-center">
                         {course.completed ? (
-                          <Link className="flex items-center md:mr-3" to="/">
+                          <Link
+                            className="flex items-center md:mr-3"
+                            to="/dashboard/certificates"
+                          >
                             <Lucide
                               icon="Archive"
                               className="w-4 h-4 md:mr-1"

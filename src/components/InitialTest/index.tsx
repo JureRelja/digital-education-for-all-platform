@@ -104,11 +104,16 @@ function index() {
       return b.score - a.score;
     });
 
-    const coursesOrder = sortedCourseScores.map((course) => course.id);
+    const coursesOrder = sortedCourseScores.map((course) => {
+      return {
+        id: course.id,
+        completed: false,
+      };
+    });
 
     dispatch(changeCoursesOrder(coursesOrder));
 
-    update(ref(database, "users/" + userCode), {
+    update(ref(database, `users/${userCode}`), {
       coursesOrder: coursesOrder,
       initialTestCompleted: true,
     }).then(() => {
