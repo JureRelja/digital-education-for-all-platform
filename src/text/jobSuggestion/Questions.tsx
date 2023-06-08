@@ -1,4 +1,4 @@
-export const initialTestQuestionsEn = {
+export const jobSuggestionQuestionsEn = {
   questions: [
     {
       question: "I like to work on cars.",

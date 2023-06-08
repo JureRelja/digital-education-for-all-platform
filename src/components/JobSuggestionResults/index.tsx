@@ -3,10 +3,12 @@ import Button from "../../base-components/Button";
 import Progress from "../../base-components/Progress";
 import { RIASECTypeEn } from "../../text/jobSuggestion/RIASECType";
 import { resultsTextEn } from "../../text/jobSuggestion/ResultsText";
-import { useNavigate } from "react-router";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css"; // optional
 import useText from "../../hooks/textLanguage";
 import Heading from "../../components/Heading";
 import PageContainer from "../../components/PageContainer";
+import JobSuggProgBar from "../../components/JobSuggProgBar";
 
 function index() {
   const resultsText = useText(
@@ -43,120 +45,66 @@ function index() {
         <b>{RIASEC.secondLetter.letter}</b> - <b>{RIASEC.thirdLetter.letter}</b>
       </div>
       <div className="flex flex-col justify-center items-center gap-4 w-full">
-        <div className="flex flex-col justify-center items-center gap-1 w-full">
-          <h1 className="text-md font-bold">
-            {RIASECType(RIASEC.firstLetter.letter)}
-          </h1>
-          <Progress className="h-7 rounded-lg">
-            {RIASEC.firstLetter.value == 0 ? (
-              <p className="text-center mt-1">
-                {RIASEC.firstLetter.value + "%"}
-              </p>
-            ) : (
-              <Progress.Bar
-                className={`bg-info`}
-                style={{ width: firstLetterWidth }}
-              >
-                {RIASEC.firstLetter.value}%
-              </Progress.Bar>
-            )}
-          </Progress>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-1 w-full">
-          <h1 className="text-md font-bold">
-            {RIASECType(RIASEC.secondLetter.letter)}
-          </h1>
-          <Progress className="h-7 rounded-lg ">
-            {RIASEC.secondLetter.value == 0 ? (
-              <p className="text-center mt-1">
-                {RIASEC.secondLetter.value + "%"}
-              </p>
-            ) : (
-              <Progress.Bar
-                className={`bg-danger`}
-                style={{ width: secondLetterWidth }}
-              >
-                {RIASEC.secondLetter.value}%
-              </Progress.Bar>
-            )}
-          </Progress>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-1 w-full">
-          <h1 className="text-md font-bold">
-            {RIASECType(RIASEC.thirdLetter.letter)}
-          </h1>
-          <Progress className="h-7 rounded-lg">
-            {RIASEC.thirdLetter.value == 0 ? (
-              <p className="text-center mt-1">
-                {RIASEC.thirdLetter.value + "%"}
-              </p>
-            ) : (
-              <Progress.Bar
-                className={`bg-warning h-7`}
-                style={{ width: thirdLetterWidth }}
-              >
-                {RIASEC.thirdLetter.value}%
-              </Progress.Bar>
-            )}
-          </Progress>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-1 w-full">
-          <h1 className="text-md font-bold">
-            {RIASECType(RIASEC.fourthLetter.letter)}
-          </h1>
-          <Progress className="h-7 rounded-lg">
-            {RIASEC.fourthLetter.value == 0 ? (
-              <p className="text-center mt-1">
-                {RIASEC.fourthLetter.value + "%"}
-              </p>
-            ) : (
-              <Progress.Bar
-                className={` bg-success h-7`}
-                style={{ width: fourthLetterWidth }}
-              >
-                {RIASEC.fourthLetter.value}%
-              </Progress.Bar>
-            )}
-          </Progress>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-1 w-full">
-          <h1 className="text-md font-bold">
-            {RIASECType(RIASEC.fifthLetter.letter)}
-          </h1>
-          <Progress className="h-7 rounded-lg">
-            {RIASEC.fifthLetter.value == 0 ? (
-              <p className="text-center mt-1">
-                {RIASEC.fifthLetter.value + "%"}
-              </p>
-            ) : (
-              <Progress.Bar
-                className={"bg-pending"}
-                style={{ width: fifthLetterWidth }}
-              >
-                {RIASEC.fifthLetter.value}%
-              </Progress.Bar>
-            )}
-          </Progress>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-1 w-full">
-          <h1 className="text-md font-bold">
-            {RIASECType(RIASEC.sixthLetter.letter)}
-          </h1>
-          <Progress className="h-7 rounded-lg ">
-            {RIASEC.sixthLetter.value == 0 ? (
-              <p className="text-center mt-1">
-                {RIASEC.sixthLetter.value + "%"}
-              </p>
-            ) : (
-              <Progress.Bar
-                className={`bg-primary`}
-                style={{ width: sixthLetterWidth }}
-              >
-                {RIASEC.sixthLetter.value}%
-              </Progress.Bar>
-            )}
-          </Progress>
-        </div>
+        <JobSuggProgBar
+          title={RIASECType(RIASEC.firstLetter.letter).title}
+          value={RIASEC.firstLetter.value}
+          width={firstLetterWidth}
+          color={"bg-info"}
+          characteristics={
+            RIASECType(RIASEC.firstLetter.letter).characteristics
+          }
+          jobs={RIASECType(RIASEC.firstLetter.letter).jobs}
+        />
+        <JobSuggProgBar
+          title={RIASECType(RIASEC.secondLetter.letter).title}
+          value={RIASEC.secondLetter.value}
+          width={secondLetterWidth}
+          color={"bg-danger"}
+          characteristics={
+            RIASECType(RIASEC.secondLetter.letter).characteristics
+          }
+          jobs={RIASECType(RIASEC.secondLetter.letter).jobs}
+        />
+        <JobSuggProgBar
+          title={RIASECType(RIASEC.thirdLetter.letter).title}
+          value={RIASEC.thirdLetter.value}
+          width={thirdLetterWidth}
+          color={"bg-warning"}
+          characteristics={
+            RIASECType(RIASEC.thirdLetter.letter).characteristics
+          }
+          jobs={RIASECType(RIASEC.thirdLetter.letter).jobs}
+        />
+        <JobSuggProgBar
+          title={RIASECType(RIASEC.fourthLetter.letter).title}
+          value={RIASEC.fourthLetter.value}
+          width={fourthLetterWidth}
+          color={"bg-success"}
+          characteristics={
+            RIASECType(RIASEC.fourthLetter.letter).characteristics
+          }
+          jobs={RIASECType(RIASEC.fourthLetter.letter).jobs}
+        />
+        <JobSuggProgBar
+          title={RIASECType(RIASEC.fifthLetter.letter).title}
+          value={RIASEC.fifthLetter.value}
+          width={fifthLetterWidth}
+          color={"bg-pending"}
+          characteristics={
+            RIASECType(RIASEC.fifthLetter.letter).characteristics
+          }
+          jobs={RIASECType(RIASEC.fifthLetter.letter).jobs}
+        />
+        <JobSuggProgBar
+          title={RIASECType(RIASEC.sixthLetter.letter).title}
+          value={RIASEC.sixthLetter.value}
+          width={sixthLetterWidth}
+          color={"bg-primary"}
+          characteristics={
+            RIASECType(RIASEC.sixthLetter.letter).characteristics
+          }
+          jobs={RIASECType(RIASEC.sixthLetter.letter).jobs}
+        />
       </div>
     </PageContainer>
   );

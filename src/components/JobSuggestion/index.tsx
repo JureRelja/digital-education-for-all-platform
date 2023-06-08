@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { initialTestQuestionsEn } from "../../text/jobSuggestion/InitialTestQuestions";
+import { jobSuggestionQuestionsEn } from "../../text/jobSuggestion/Questions";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../../base-components/Button";
 import { database } from "../../firebase";
@@ -17,11 +17,11 @@ function index() {
 
   const jobSuggestionText = useText(
     //Page text
-    initialTestQuestionsEn,
-    initialTestQuestionsEn,
-    initialTestQuestionsEn,
-    initialTestQuestionsEn,
-    initialTestQuestionsEn
+    jobSuggestionQuestionsEn,
+    jobSuggestionQuestionsEn,
+    jobSuggestionQuestionsEn,
+    jobSuggestionQuestionsEn,
+    jobSuggestionQuestionsEn
   );
 
   const userCode = useSelector((state: any) => state.user.userCode);
