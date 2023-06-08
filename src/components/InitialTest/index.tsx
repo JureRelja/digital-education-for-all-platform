@@ -3,7 +3,10 @@ import { useNavigate } from "react-router";
 import Button from "../../base-components/Button";
 import { initialTestPageTextEn } from "../../text/initialTestPage/Text";
 import { useDispatch, useSelector } from "react-redux";
-import { changeCoursesOrder } from "../../stores/userSlice";
+import {
+  changeCoursesOrder,
+  changeInitialTestCompleted,
+} from "../../stores/userSlice";
 import { database } from "../../firebase";
 import { ref, update } from "firebase/database";
 import PageContainer from "../PageContainer";
@@ -112,6 +115,7 @@ function index() {
     });
 
     dispatch(changeCoursesOrder(coursesOrder));
+    dispatch(changeInitialTestCompleted(true));
 
     update(ref(database, `users/${userCode}`), {
       coursesOrder: coursesOrder,

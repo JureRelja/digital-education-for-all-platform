@@ -7,4 +7,5 @@ export const topMenuTextEn = {
   jobSuggestionsHelpText: `Job orem iectetur adipiscing elit. Proin sodales magna at arcu ornare, vel ornare erat suscipit. Pellentesque euismod tempus tortor sit amet lacinia. Curabitur volutpat consequat suscipit. Morbi rhoncus ligula vel odio consequat, eget pulvinar quam hendrerit. Aliquam velit quam,`,
   certificatesHelpText: `Courses orem ipsum dolor sit amet, consectetur adipiscing elit. Proin soarcu ornare, vel ornare erat suscipit. Pellentesque euismod tempus tortor sit amet lacinia. Curabitur volutpat consequat suscipit. Morbi rhoncus ligula vel odio consequat, eget pulvinar quam hendrerit. Aliquam velit quam,`,
   coursesContentHelpText: `Content orem ipsum dolor sit amet, consectetur adipiscing elit. Proin soarcu`,
+  coursesTestHelpText: `Test orem ipsum dolor sit amet, consectetur adipiscing elit. Proin soarcu`,
 };

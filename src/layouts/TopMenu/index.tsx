@@ -72,6 +72,8 @@ function Main() {
       parseInt(location.pathname.slice(-1)) >= 1
     ) {
       setHelpText(topMenuText.coursesContentHelpText);
+    } else if (location.pathname.includes("/test")) {
+      setHelpText(topMenuText.coursesTestHelpText);
     }
   }, [location.pathname]);
 

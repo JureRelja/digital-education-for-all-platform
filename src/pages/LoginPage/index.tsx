@@ -6,7 +6,7 @@ import { loginPageTextEn } from "../../text/loginPage/Text";
 import useText from "../../hooks/textLanguage";
 import { useNavigate } from "react-router-dom";
 import { database } from "../../firebase";
-import { ref, set, onValue } from "firebase/database";
+import { ref, set, get, getDatabase, child } from "firebase/database";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -84,7 +84,8 @@ function Main() {
     dispatch(changeUserCode(userCode)); //Updating store with userCode
     dispatch(changeUserData(userData)); //Updating store with userData
 
-    onValue(ref(database, "users/" + userCode), (snapshot) => {
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `users/${userCode}`)).then((snapshot) => {
       if (snapshot.exists()) {
         //User exists in database
 
@@ -109,7 +110,7 @@ function Main() {
       } else {
         //User doesn't exist in database
 
-        set(ref(database, "users/" + userCode), {
+        set(ref(database, `users/${userCode}`), {
           userCode: userCode,
           userData: userData,
           initialTestCompleted: false,

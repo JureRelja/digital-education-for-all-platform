@@ -149,9 +149,7 @@ function index() {
     dispatch(changeRIASEC(RIASEC));
 
     //Store RIASEC values in database
-    update(ref(database, `users/${userCode}`), { RIASEC }).then(() => {
-      navigate("/dashboard/job-suggestions");
-    });
+    update(ref(database, `users/${userCode}`), { RIASEC });
   };
 
   return (

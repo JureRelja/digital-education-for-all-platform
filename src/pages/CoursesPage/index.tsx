@@ -106,7 +106,9 @@ function index() {
                               icon="CheckSquare"
                               className="w-4 h-4 md:mr-2"
                             />
-                            <p>{coursesPageText.tableTextCompleted}</p>
+                            <p className="md:mr-6">
+                              {coursesPageText.tableTextCompleted}
+                            </p>
                           </>
                         ) : (
                           <p className="md:mr-6">
@@ -119,7 +121,7 @@ function index() {
                       <div className="flex items-center justify-center text-center">
                         {course.completed ? (
                           <Link
-                            className="flex items-center md:mr-3"
+                            className="flex items-center md:mr-1"
                             to="/dashboard/certificates"
                           >
                             <Lucide

@@ -1,6 +1,5 @@
 import { useState, Fragment } from "react";
 import Lucide from "../../base-components/Lucide";
-import Breadcrumb from "../../base-components/Breadcrumb";
 import { FormInput } from "../../base-components/Form";
 import { Menu, Popover } from "../../base-components/Headless";
 import fakerData from "../../utils/faker";
@@ -22,13 +21,7 @@ function Main() {
       {/* BEGIN: Top Bar */}
       <div className="h-[67px] z-[51] flex items-center relative border-b border-slate-200">
         {/* BEGIN: Breadcrumb */}
-        <Breadcrumb className="hidden mr-auto -intro-x sm:flex">
-          <Breadcrumb.Link to="/">Application</Breadcrumb.Link>
-          <Breadcrumb.Link to="/" active={true}>
-            Dashboard
-          </Breadcrumb.Link>
-        </Breadcrumb>
-        {/* END: Breadcrumb */}
+
         {/* BEGIN: Search */}
         <div className="relative mr-3 intro-x sm:mr-6">
           <div className="relative hidden sm:block">

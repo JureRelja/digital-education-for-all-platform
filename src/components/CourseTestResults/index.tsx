@@ -34,36 +34,34 @@ function index(props: CourseTestResults) {
   const { points } = props;
 
   useEffect(() => {
-    // If the user has 3 or more points, the course is marked as completed
     if (points >= 3) {
       const courseIndex = coursesOrder.findIndex(
         (course: any) => course.id === courseID
       );
 
-      update(ref(database, `users/${userCode}/coursesOrder/${courseIndex}`), {
-        completed: true,
-      }); //Updating the course status in the database
-
       dispatch(
         changeCourseStatus({ courseIndex: courseIndex, completed: true }) //Updating the course status in the store
       );
+      update(ref(database, `users/${userCode}/coursesOrder/${courseIndex}`), {
+        completed: true,
+      }); //Updating the course status in the database
     }
   }, []);
 
   return (
     <>
-      <h2 className="text-xl">
+      <h2 className="text-xl opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
         {resultsText.resultsHeading} <b>{points}/5</b>
       </h2>
 
       {points >= 3 ? (
         <>
-          <p className="text-md font-normal text-center">
+          <p className="text-md font-normal text-center opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
             {resultsText.resultsSuccessMsg}
           </p>
           <Button
             variant="primary"
-            className="mb-2 mr-2 text-md"
+            className="mb-2 mr-2 text-md opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards"
             onClick={() => navigate("/dashboard/certificates")}
           >
             {resultsText.resultsSuccessBtn}{" "}
@@ -72,12 +70,12 @@ function index(props: CourseTestResults) {
         </>
       ) : (
         <>
-          <p className="text-md font-normal text-center">
+          <p className="text-md font-normal text-center opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
             {resultsText.resultsFailureMsg}
           </p>
           <Button
             variant="primary"
-            className="mb-2 mr-2 text-md"
+            className="mb-2 mr-2 text-md opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards"
             onClick={() => navigate(`/dashboard/courses/${props.courseID}`)}
           >
             {resultsText.resultsFailureBtn}{" "}

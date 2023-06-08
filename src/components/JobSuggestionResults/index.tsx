@@ -9,8 +9,6 @@ import Heading from "../../components/Heading";
 import PageContainer from "../../components/PageContainer";
 
 function index() {
-  const navigate = useNavigate();
-
   const resultsText = useText(
     resultsTextEn,
     resultsTextEn,

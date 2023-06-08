@@ -6,7 +6,7 @@ export const coursesPageTextEn = {
   notCompletedButtonText: `Go to Initial test`,
   tableTextCourses: "Course title",
   tableTextStatus: "Status",
-  tableTextDownload: "Download certificate",
+  tableTextDownload: "Get certificate",
   tableTextStart: "Start course",
   tableTextCompleted: "Completed",
   tableTextNotCompleted: "Not completed",
