@@ -54,6 +54,9 @@ function index() {
             RIASECType(RIASEC.firstLetter.letter).characteristics
           }
           jobs={RIASECType(RIASEC.firstLetter.letter).jobs}
+          personalCharacteristics={
+            RIASECType(RIASEC.firstLetter.letter).personalCharacteristics
+          }
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.secondLetter.letter).title}
@@ -64,6 +67,9 @@ function index() {
             RIASECType(RIASEC.secondLetter.letter).characteristics
           }
           jobs={RIASECType(RIASEC.secondLetter.letter).jobs}
+          personalCharacteristics={
+            RIASECType(RIASEC.secondLetter.letter).personalCharacteristics
+          }
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.thirdLetter.letter).title}
@@ -74,6 +80,9 @@ function index() {
             RIASECType(RIASEC.thirdLetter.letter).characteristics
           }
           jobs={RIASECType(RIASEC.thirdLetter.letter).jobs}
+          personalCharacteristics={
+            RIASECType(RIASEC.thirdLetter.letter).personalCharacteristics
+          }
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.fourthLetter.letter).title}
@@ -84,6 +93,9 @@ function index() {
             RIASECType(RIASEC.fourthLetter.letter).characteristics
           }
           jobs={RIASECType(RIASEC.fourthLetter.letter).jobs}
+          personalCharacteristics={
+            RIASECType(RIASEC.fourthLetter.letter).personalCharacteristics
+          }
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.fifthLetter.letter).title}
@@ -94,6 +106,9 @@ function index() {
             RIASECType(RIASEC.fifthLetter.letter).characteristics
           }
           jobs={RIASECType(RIASEC.fifthLetter.letter).jobs}
+          personalCharacteristics={
+            RIASECType(RIASEC.fifthLetter.letter).personalCharacteristics
+          }
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.sixthLetter.letter).title}
@@ -104,6 +119,9 @@ function index() {
             RIASECType(RIASEC.sixthLetter.letter).characteristics
           }
           jobs={RIASECType(RIASEC.sixthLetter.letter).jobs}
+          personalCharacteristics={
+            RIASECType(RIASEC.sixthLetter.letter).personalCharacteristics
+          }
         />
       </div>
     </PageContainer>

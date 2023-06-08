@@ -11,6 +11,7 @@ type RIASECType = {
   width: string;
   color: string;
   characteristics: string;
+  personalCharacteristics: Array<string>;
   jobs: Array<string>;
 };
 
