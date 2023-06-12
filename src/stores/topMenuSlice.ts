@@ -104,7 +104,7 @@ const initialState: TopMenuState = {
     },
     {
       icon: "Users",
-      titleEn: "Job Suggestions",
+      titleEn: "Job suggestions",
       titleHr: "Poslovi",
       titleSl: "Delovna mesta",
       titlePl: "Oferty pracy",

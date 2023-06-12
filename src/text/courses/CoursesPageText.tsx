@@ -10,4 +10,5 @@ export const coursesPageTextEn = {
   tableTextStart: "Start course",
   tableTextCompleted: "Completed",
   tableTextNotCompleted: "Not completed",
+  tableTextNoCourses: "No courses here",
 };

@@ -34,30 +34,30 @@ export const course1ContentEn = {
   img: <img src={course1Img} className="rounded-lg shadow-md" />,
   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sem tincidunt mauris pulvinar condimentum. Nunc luctus tristique ligula ac accumsan. Maecenas vestibulum, elit sit amet tincidunt scelerisque,`,
   duration: "1h 30min",
-  testQustions: [
+  testQuestions: [
     {
       title: "What is a computer?",
-      answers: ["PC", "CD", "DVD", "TV"],
+      answers: ["CD", "PC", "DVD", "TV"],
       correctAnswer: "PC",
     },
     {
       title: "What is a DVD?",
-      answers: ["PC", "CD", "DVD", "TV"],
+      answers: ["TV", "DVD", "PC", "CD"],
       correctAnswer: "DVD",
     },
     {
       title: "What is a TV?",
-      answers: ["PC", "CD", "DVD", "TV"],
+      answers: ["CD", "PC", "DVD", "TV"],
       correctAnswer: "TV",
     },
     {
       title: "What is a CD?",
-      answers: ["PC", "CD", "DVD", "TV"],
+      answers: ["TV", "PC", "DVD", "CD"],
       correctAnswer: "CD",
     },
     {
       title: "What is a PC?",
-      answers: ["PC", "CD", "DVD", "TV"],
+      answers: ["DVD", "TV", "CD", "PC"],
       correctAnswer: "PC",
     },
   ],

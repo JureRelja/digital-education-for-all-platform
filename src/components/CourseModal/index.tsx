@@ -45,6 +45,7 @@ function index(props: Props) {
         </div>
       </div>
       <Dialog
+        center={false}
         open={showModal}
         onClose={() => {
           setShowModal(false);

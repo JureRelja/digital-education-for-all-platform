@@ -27,6 +27,7 @@ function Dialog({
 }: ExtractProps<typeof HeadlessDialog> & {
   size?: Size;
   staticBackdrop?: boolean;
+  center?: boolean;
 }) {
   const focusElement = useRef<HTMLElement | null>(null);
   const [zoom, setZoom] = useState(false);
@@ -70,6 +71,7 @@ Dialog.Panel = ({
   ...props
 }: ExtractProps<typeof HeadlessDialog.Panel> & {
   size?: Size;
+  center?: boolean;
 }) => {
   const dialog = useContext(dialogContext);
   return (
@@ -98,10 +100,12 @@ Dialog.Panel = ({
         <HeadlessDialog.Panel
           as={as}
           className={twMerge([
-            "w-[100%] mx-auto bg-white relative rounded-md shadow-md transition-transform overflow-scroll xl:overflow-hidden top-[50%] translate-y-[-50%] lg:top-0 lg:translate-y-0",
+            "w-[100%] mx-auto bg-white relative rounded-md shadow-md transition-transform overflow-auto max-h-[95vh] top-[50%] translate-y-[-50%] ",
+            dialog.center == false && "lg:top-0 lg:translate-y-0",
             dialog.size == "md" && "sm:w-[460px]",
             dialog.size == "sm" && "w-full md:w-fit ",
             dialog.size == "lg" && "w-full md:w-fit",
+            dialog.size == "xl" && "sm:w-[600px] lg:w-[900px]",
             dialog.zoom && "scale-105",
             className,
           ])}

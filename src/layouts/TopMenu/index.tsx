@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { selectTopMenu } from "../../stores/topMenuSlice";
 import { useAppSelector } from "../../stores/hooks";
 import _, { set } from "lodash";
+import { Menu, Slideover } from "../../base-components/Headless";
 import { FormattedMenu, linkTo, nestedMenu } from "./top-menu";
-import Lucide from "../../base-components/Lucide";
 import logoUrl from "../../assets/images/logo.svg";
 import clsx from "clsx";
 import MobileMenu from "../../components/MobileMenu";
@@ -12,8 +12,8 @@ import bannersUrl from "../../assets/Visibility_1.png";
 import { useSelector } from "react-redux";
 import { topMenuTextEn } from "../../text/topMenu/Text";
 import useText from "../../hooks/textLanguage";
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css"; // optional
+import Lucide from "../../base-components/Lucide";
+
 import Button from "../../base-components/Button";
 
 function Main() {
@@ -24,6 +24,7 @@ function Main() {
   const topMenu = () => nestedMenu(topMenuStore, location);
 
   const [helpText, setHelpText] = useState<string>(""); // Help text for the top menu
+  const [showSlideOver, setShowSlideOver] = useState<boolean>(false); // Slide over menu
 
   const topMenuText = useText(
     topMenuTextEn,
@@ -98,9 +99,42 @@ function Main() {
             <h2 className="mr-5">
               {topMenuText.welcome} {firstName} {lastName}!
             </h2>
-            <Tippy content={<span>{helpText}</span>} trigger="click">
-              <Button variant="warning">{topMenuText.needHelp}</Button>
-            </Tippy>
+
+            {/* Need help button start */}
+            <Button variant="warning" onClick={() => setShowSlideOver(true)}>
+              {topMenuText.needHelp}
+            </Button>
+            <Slideover
+              staticBackdrop={true}
+              open={showSlideOver}
+              onClose={() => {
+                setShowSlideOver(false);
+              }}
+            >
+              <Slideover.Panel>
+                <a
+                  onClick={(event: React.MouseEvent) => {
+                    event.preventDefault();
+                    setShowSlideOver(false);
+                  }}
+                  className="absolute top-0 left-0 right-auto mt-4 -ml-12"
+                  href="#"
+                >
+                  <Lucide icon="X" className="w-8 h-8 text-slate-400" />
+                </a>
+                <Slideover.Title className="p-5">
+                  <h2 className="mr-auto text-base font-medium">
+                    {topMenuText.needHelpTitle}
+                  </h2>
+                </Slideover.Title>
+                <Slideover.Description className="flex flex-col gap-2">
+                  <p>{helpText}</p>
+                  <p>{helpText}</p>
+                  <p>{helpText}</p>
+                </Slideover.Description>
+              </Slideover.Panel>
+            </Slideover>
+            {/* Need help button end */}
           </div>
           {/* END: Welcome {firstName} + {lastName} */}
         </div>

@@ -31,7 +31,7 @@ function index() {
 
   const course = courseLanguage.find((course: any) => course.id == courseID); //Finding the course with the right ID
 
-  const questions = course.content.testQustions; //Getting the questions from the course
+  const questions = course.content.testQuestions; //Getting the questions from the course
 
   const [questionIndex, setQuestionIndex] = useState(0); //Setting the question index
   const [activeAnswer, setActiveAnswer] = useState(""); //Setting the active answer

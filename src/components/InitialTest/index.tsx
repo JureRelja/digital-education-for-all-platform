@@ -12,6 +12,7 @@ import { ref, update } from "firebase/database";
 import PageContainer from "../PageContainer";
 import Heading from "../../components/Heading";
 import useText from "../../hooks/textLanguage";
+import { at } from "lodash";
 
 function index() {
   const navigate = useNavigate(); //Navigation hook
@@ -44,11 +45,13 @@ function index() {
   const [course10Score, setCourse10Score] = useState(0); //Score for course 10
 
   const handleAnswerClick = (answer: any) => {
+    setActiveAnswer(answer);
+  };
+
+  const nextQuestion = () => {
     const correctAnswer = questions[questionIndex].correctAnswer;
 
-    setActiveAnswer(answer);
-
-    if (correctAnswer == answer) {
+    if (correctAnswer == activeAnswer) {
       switch (questions[questionIndex].forCourse) {
         case 1:
           setCourse1Score((score: any) => score + 1);
@@ -82,15 +85,25 @@ function index() {
           break;
       }
     }
-  };
 
-  const nextQuestion = () => {
     setQuestionIndex((index: any) => index + 1);
     setActiveAnswer("");
+    console.log(
+      course1Score,
+      course2Score,
+      course3Score,
+      course4Score,
+      course5Score,
+      course6Score,
+      course7Score,
+      course8Score,
+      course9Score,
+      course10Score
+    );
   };
 
   const submitInitialTest = () => {
-    const courseScores = [
+    const courseOrder = [
       { id: 1, score: course1Score, completed: false },
       { id: 2, score: course2Score, completed: false },
       { id: 3, score: course3Score, completed: false },
@@ -103,22 +116,15 @@ function index() {
       { id: 10, score: course10Score, completed: false },
     ];
 
-    const sortedCourseScores = courseScores.sort((a, b) => {
+    const sortedCoursesOrder = courseOrder.sort((a, b) => {
       return b.score - a.score;
     });
 
-    const coursesOrder = sortedCourseScores.map((course) => {
-      return {
-        id: course.id,
-        completed: false,
-      };
-    });
-
-    dispatch(changeCoursesOrder(coursesOrder));
+    dispatch(changeCoursesOrder(sortedCoursesOrder));
     dispatch(changeInitialTestCompleted(true));
 
     update(ref(database, `users/${userCode}`), {
-      coursesOrder: coursesOrder,
+      coursesOrder: sortedCoursesOrder,
       initialTestCompleted: true,
     }).then(() => {
       navigate("/dashboard/courses");

@@ -20,7 +20,7 @@ const userSlice = createSlice({
             dateOfBirth: {year: 0, month: 0, day: 0},
         },
         initialTestCompleted: false,
-        coursesOrder: [{id: 1, completed: false}, {id: 2, completed: false}, {id: 3, completed: false}, {id: 4, completed: false}, {id: 5, completed: false}, {id: 6, completed: false}, {id: 7, completed: false}, {id: 8, completed: false}, {id: 9, completed: false}, {id: 10, completed: false}]
+        coursesOrder: [{id: 1, completed: false, score: 0}, {id: 2, completed: false, score: 0}, {id: 3, completed: false, score: 0}, {id: 4, completed: false, score: 0}, {id: 5, completed: false, score: 0}, {id: 6, completed: false, score: 0}, {id: 7, completed: false, score: 0}, {id: 8, completed: false, score: 0}, {id: 9, completed: false, score: 0}, {id: 10, completed: false, score: 0}]
     },
     reducers: {
         changeRIASEC: (state, action) => {

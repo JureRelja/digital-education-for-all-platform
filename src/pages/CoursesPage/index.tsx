@@ -10,6 +10,14 @@ import useText from "../../hooks/textLanguage";
 import Heading from "../../components/Heading";
 import Button from "../../base-components/Button";
 import PageContainer from "../../components/PageContainer";
+import CoursesCategory from "../../components/CoursesCategory";
+
+type Course = {
+  id: number;
+  title: string;
+  completed: boolean;
+  score: number;
+};
 
 function index() {
   const navigate = useNavigate(); //Navigation hook
@@ -27,7 +35,7 @@ function index() {
 
   const orderedCourses = coursesOrder.map((order: any) => {
     const newOrdCourse = courses.find((course: any) => course.id == order.id);
-    return { ...newOrdCourse, completed: order.completed };
+    return { ...newOrdCourse, completed: order.completed, score: order.score };
   }); //Ordered courses
 
   const coursesPageText = useText(
@@ -37,6 +45,16 @@ function index() {
     coursesPageTextEn,
     coursesPageTextEn
   ); //Courses page text
+
+  const redCourses = orderedCourses.filter(
+    (course: Course) => course.score <= 2
+  );
+  const yellowCourses = orderedCourses.filter(
+    (course: Course) => course.score > 2 && course.score <= 4
+  );
+  const greenCourses = orderedCourses.filter(
+    (course: Course) => course.score > 4
+  );
 
   return (
     <>
@@ -67,7 +85,25 @@ function index() {
           </p>
 
           <div className="overflow-auto intro-y lg:overflow-visible sm:mt-0 w-full ">
-            <Table className="border-spacing-y-[10px] border-separate sm:mt-2">
+            <CoursesCategory
+              title={"You should definitely take these courses:"}
+              color="text-danger"
+              bgColor="bg-red-100"
+              courses={redCourses}
+            />
+            <CoursesCategory
+              title={"You should probably take these courses:"}
+              color="text-pending"
+              bgColor="bg-yellow-100"
+              courses={yellowCourses}
+            />
+            <CoursesCategory
+              title={"You don’t need to take these courses:"}
+              color="text-success"
+              bgColor="bg-green-100"
+              courses={greenCourses}
+            />
+            {/* <Table className="border-spacing-y-[10px] border-separate sm:mt-2">
               <Table.Thead>
                 <Table.Tr>
                   <Table.Th className="border-b-0 whitespace-nowrap">
@@ -144,7 +180,7 @@ function index() {
                   </Table.Tr>
                 ))}
               </Table.Tbody>
-            </Table>
+            </Table> */}
           </div>
         </PageContainer>
       )}

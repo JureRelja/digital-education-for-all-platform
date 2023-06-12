@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { pdfjs, Document, Page } from "react-pdf";
 import useText from "../../hooks/textLanguage";
 import { PDFVieverEn } from "../../text/pdfViever/text";
@@ -7,7 +7,6 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 import type { PDFDocumentProxy } from "pdfjs-dist";
 import Button from "../../base-components/Button";
 import Lucide from "../../base-components/Lucide";
-import { set } from "lodash";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",

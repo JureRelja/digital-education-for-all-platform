@@ -1,10 +1,8 @@
 import { useSelector } from "react-redux";
-import Button from "../../base-components/Button";
-import Progress from "../../base-components/Progress";
+import Divider from "../../components/Divider";
 import { RIASECTypeEn } from "../../text/jobSuggestion/RIASECType";
 import { resultsTextEn } from "../../text/jobSuggestion/ResultsText";
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css"; // optional
+import "tippy.js/dist/tippy.css";
 import useText from "../../hooks/textLanguage";
 import Heading from "../../components/Heading";
 import PageContainer from "../../components/PageContainer";
@@ -57,6 +55,7 @@ function index() {
           personalCharacteristics={
             RIASECType(RIASEC.firstLetter.letter).personalCharacteristics
           }
+          activities={RIASECType(RIASEC.firstLetter.letter).activities}
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.secondLetter.letter).title}
@@ -70,6 +69,7 @@ function index() {
           personalCharacteristics={
             RIASECType(RIASEC.secondLetter.letter).personalCharacteristics
           }
+          activities={RIASECType(RIASEC.secondLetter.letter).activities}
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.thirdLetter.letter).title}
@@ -83,12 +83,14 @@ function index() {
           personalCharacteristics={
             RIASECType(RIASEC.thirdLetter.letter).personalCharacteristics
           }
+          activities={RIASECType(RIASEC.thirdLetter.letter).activities}
         />
+        <Divider />
         <JobSuggProgBar
           title={RIASECType(RIASEC.fourthLetter.letter).title}
           value={RIASEC.fourthLetter.value}
           width={fourthLetterWidth}
-          color={"bg-success"}
+          color={"bg-gray-300"}
           characteristics={
             RIASECType(RIASEC.fourthLetter.letter).characteristics
           }
@@ -96,12 +98,13 @@ function index() {
           personalCharacteristics={
             RIASECType(RIASEC.fourthLetter.letter).personalCharacteristics
           }
+          activities={RIASECType(RIASEC.fourthLetter.letter).activities}
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.fifthLetter.letter).title}
           value={RIASEC.fifthLetter.value}
           width={fifthLetterWidth}
-          color={"bg-pending"}
+          color={"bg-gray-300"}
           characteristics={
             RIASECType(RIASEC.fifthLetter.letter).characteristics
           }
@@ -109,12 +112,13 @@ function index() {
           personalCharacteristics={
             RIASECType(RIASEC.fifthLetter.letter).personalCharacteristics
           }
+          activities={RIASECType(RIASEC.fifthLetter.letter).activities}
         />
         <JobSuggProgBar
           title={RIASECType(RIASEC.sixthLetter.letter).title}
           value={RIASEC.sixthLetter.value}
           width={sixthLetterWidth}
-          color={"bg-primary"}
+          color={"bg-gray-300"}
           characteristics={
             RIASECType(RIASEC.sixthLetter.letter).characteristics
           }
@@ -122,6 +126,7 @@ function index() {
           personalCharacteristics={
             RIASECType(RIASEC.sixthLetter.letter).personalCharacteristics
           }
+          activities={RIASECType(RIASEC.sixthLetter.letter).activities}
         />
       </div>
     </PageContainer>
