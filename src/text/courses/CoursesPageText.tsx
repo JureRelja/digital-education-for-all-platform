@@ -10,5 +10,8 @@ export const coursesPageTextEn = {
   tableTextStart: "Start course",
   tableTextCompleted: "Completed",
   tableTextNotCompleted: "Not completed",
-  tableTextNoCourses: "No courses here",
+  tableTextNoCourses: "No courses here.",
+  definitelyTakeCoursesTxt: `You should definitely take these courses:`,
+  shouldTakeCoursesTxt: `You should probably take these courses:`,
+  couldTakeCoursesTxt: `You don’t need to take these courses:`,
 };

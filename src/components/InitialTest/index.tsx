@@ -88,18 +88,6 @@ function index() {
 
     setQuestionIndex((index: any) => index + 1);
     setActiveAnswer("");
-    console.log(
-      course1Score,
-      course2Score,
-      course3Score,
-      course4Score,
-      course5Score,
-      course6Score,
-      course7Score,
-      course8Score,
-      course9Score,
-      course10Score
-    );
   };
 
   const submitInitialTest = () => {

@@ -29,6 +29,12 @@ function index(props: Courses) {
     coursesPageTextEn
   ); //Courses page text
 
+  const orderedCourses = props.courses.sort(
+    (courseA: Course, courseB: Course) => {
+      return courseA.score - courseB.score;
+    }
+  );
+
   return (
     <div className="mt-6">
       <h2 className={`${props.color} text-lg`}>{props.title}</h2>
@@ -45,7 +51,7 @@ function index(props: Courses) {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
-            {props.courses.map((course: any) => (
+            {orderedCourses.map((course: any) => (
               <Table.Tr key={course.id} className="intro-x">
                 <Table.Td
                   className={`first:rounded-l-md last:rounded-r-md ${props.bgColor} border-b-0 shadow-[20px_3px_20px_#0000000b] px-2 md:px-3`}
@@ -115,7 +121,9 @@ function index(props: Courses) {
           </Table.Tbody>
         </Table>
       ) : (
-        <p className="text-center">{coursesPageText.tableTextNoCourses}</p>
+        <p className="text-center text-md">
+          {coursesPageText.tableTextNoCourses}
+        </p>
       )}
     </div>
   );
