@@ -1,4 +1,3 @@
-import Tippy from "@tippyjs/react";
 import { useState } from "react";
 import "tippy.js/dist/tippy.css"; // optional
 import { resultsTextEn } from "../../text/jobSuggestion/ResultsText";

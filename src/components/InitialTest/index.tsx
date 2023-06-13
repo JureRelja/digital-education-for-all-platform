@@ -12,7 +12,7 @@ import { ref, update } from "firebase/database";
 import PageContainer from "../PageContainer";
 import Heading from "../../components/Heading";
 import useText from "../../hooks/textLanguage";
-import { at } from "lodash";
+import Progress from "../../base-components/Progress";
 
 function index() {
   const navigate = useNavigate(); //Navigation hook
@@ -43,6 +43,7 @@ function index() {
   const [course8Score, setCourse8Score] = useState(0); //Score for course 8
   const [course9Score, setCourse9Score] = useState(0); //Score for course 9
   const [course10Score, setCourse10Score] = useState(0); //Score for course 10
+  const [progressWidth, setProgressWidth] = useState("0%"); //Progress bar width
 
   const handleAnswerClick = (answer: any) => {
     setActiveAnswer(answer);
@@ -88,6 +89,7 @@ function index() {
 
     setQuestionIndex((index: any) => index + 1);
     setActiveAnswer("");
+    setProgressWidth(`${(questionIndex + 1) * 2}%`);
   };
 
   const submitInitialTest = () => {
@@ -120,8 +122,24 @@ function index() {
   };
 
   return (
-    <PageContainer>
+    <PageContainer gap="md">
       <Heading>{initialTestPageText.title}</Heading>
+      {/* <h2 className="text-xl font-bold opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
+        Question: {questionIndex + 1}/{questions.length}
+      </h2> */}
+      <div className="flex justify-center flex-col items-center w-full gap-5">
+        <h2 className="text-xl font-bold opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
+          Question: {questionIndex + 1}/{questions.length}
+        </h2>
+        <Progress className="h-7 rounded-lg flex gap-2 ">
+          <Progress.Bar
+            style={{ width: progressWidth }}
+            className="font-bold bg-success"
+          >
+            {``}
+          </Progress.Bar>
+        </Progress>
+      </div>
       <div className="flex flex-col gap-3 items-center bg-white rounded-lg shadow-sm mt-4 w-full">
         <div className="flex items-center justify-center w-full text-center">
           <h2 className="text-xl text-bold border-b w-full border-slate-200/60 px-7 py-4 opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">

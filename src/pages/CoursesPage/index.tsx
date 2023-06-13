@@ -1,16 +1,14 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import Lucide from "../../base-components/Lucide";
-import Table from "../../base-components/Table";
 import { coursesEn } from "../../text/courses/Courses";
 import { coursesPageTextEn } from "../../text/courses/CoursesPageText";
-import clsx from "clsx";
-import { Link } from "react-router-dom";
 import useText from "../../hooks/textLanguage";
 import Heading from "../../components/Heading";
 import Button from "../../base-components/Button";
 import PageContainer from "../../components/PageContainer";
 import CoursesCategory from "../../components/CoursesCategory";
+import { Disclosure } from "../../base-components/Headless";
 
 type Course = {
   id: number;
@@ -84,25 +82,30 @@ function index() {
             {coursesPageText.paragraph}
           </p>
 
-          <div className="overflow-auto intro-y lg:overflow-visible sm:mt-0 w-full ">
-            <CoursesCategory
-              title={coursesPageText.definitelyTakeCoursesTxt}
-              color="text-danger"
-              bgColor="bg-red-100"
-              courses={redCourses}
-            />
-            <CoursesCategory
-              title={coursesPageText.shouldTakeCoursesTxt}
-              color="text-pending"
-              bgColor="bg-yellow-100"
-              courses={yellowCourses}
-            />
-            <CoursesCategory
-              title={coursesPageText.couldTakeCoursesTxt}
-              color="text-success"
-              bgColor="bg-green-100"
-              courses={greenCourses}
-            />
+          <div className="overflow-auto intro-y lg:overflow-visible sm:mt-0 w-full">
+            <Disclosure.Group className="p-5 bg-white rounded-lg shadow-sm">
+              <Disclosure>
+                <CoursesCategory
+                  title={coursesPageText.definitelyTakeCoursesTxt}
+                  txtColor="text-danger"
+                  courses={redCourses}
+                />
+              </Disclosure>
+              <Disclosure>
+                <CoursesCategory
+                  title={coursesPageText.shouldTakeCoursesTxt}
+                  txtColor="text-pending"
+                  courses={yellowCourses}
+                />
+              </Disclosure>
+              <Disclosure>
+                <CoursesCategory
+                  title={coursesPageText.couldTakeCoursesTxt}
+                  txtColor="text-success"
+                  courses={greenCourses}
+                />
+              </Disclosure>
+            </Disclosure.Group>
           </div>
         </PageContainer>
       )}
