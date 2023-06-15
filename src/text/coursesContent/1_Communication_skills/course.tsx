@@ -2,8 +2,11 @@ import PDFViever from "../../../components/PDFViever";
 import PresentationDisplay from "../../../components/PresentationDisplay";
 import VideoDisplay from "../../../components/VideoDisplay";
 import course1Img from "../../../assets/images/coursesImages/communication_skills.jpg";
+import DownloadCertificate from "../../../components/DownloadCertificate";
 
-//First course start
+{
+  /*English start*/
+}
 const course1PDFen = () => {
   return <PDFViever file="../../assets/Course_template.pdf" />;
 };
@@ -62,4 +65,14 @@ export const course1ContentEn = {
     },
   ],
 };
-//First course end
+{
+  /*English end*/
+}
+
+{
+  /*Croatia start*/
+}
+
+{
+  /*Croatia end*/
+}

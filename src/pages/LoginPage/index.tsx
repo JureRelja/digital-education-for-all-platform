@@ -66,8 +66,8 @@ function Main() {
 
   const authUser = () => {
     const userCode = (
-      firstName.toLocaleLowerCase() +
-      lastName.toLocaleLowerCase() +
+      firstName.trim().toLocaleLowerCase() +
+      lastName.trim().toLocaleLowerCase() +
       year +
       month +
       day

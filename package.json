@@ -26,6 +26,7 @@
     "@hookform/resolvers": "^2.9.10",
     "@left4code/tw-starter": "^3.1.36",
     "@mui/material": "^5.13.0",
+    "@react-pdf/renderer": "^3.1.12",
     "@reduxjs/toolkit": "^1.8.5",
     "@tippyjs/react": "^4.2.6",
     "@types/react-router": "^5.1.20",

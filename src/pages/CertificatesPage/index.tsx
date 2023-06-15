@@ -9,7 +9,7 @@ import { coursesEn } from "../../text/courses/Courses";
 import { useSelector } from "react-redux";
 import Table from "../../base-components/Table";
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import DownloadCertificate from "../../components/DownloadCertificate";
 
 function index() {
   const navigate = useNavigate();
@@ -93,13 +93,7 @@ function index() {
                     </Table.Td> */}
                     <Table.Td className="first:rounded-l-md last:rounded-r-md text-white md:w-56 bg-success border-b-0 shadow-[20px_3px_20px_#0000000b] py-0 px-2 md:px-4 relative before:block before:w-px before:h-8 before:bg-slate-200 before:absolute before:left-0 before:inset-y-0 before:my-auto">
                       <div className="flex items-center justify-center text-center">
-                        <Link
-                          className="flex items-center md:mr-3"
-                          to="/dashboard/certificates"
-                        >
-                          <Lucide icon="Archive" className="w-4 h-4 md:mr-1" />
-                          {CertificatesPageText.getCertificateBtnText}
-                        </Link>
+                        <DownloadCertificate courseTitle={course.title} />
                       </div>
                     </Table.Td>
                   </Table.Tr>
