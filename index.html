@@ -5,9 +5,20 @@
     <link rel="icon" type="image/x-icon" href="/public/logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Educate Me</title>
+    
     <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account",
       "A3X86O5Y4q");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body ||
       d.head).appendChild(s);})(document)</script>
+
+  <script type = "text/javascript">
+    history.pushState(null, null, location.href);
+    history.back();
+    history.forward();
+    window.onpopstate = function ()
+    {
+        history.go(1);
+    };
+  </script>
   </head>
   <body>
     <div id="root"></div>
