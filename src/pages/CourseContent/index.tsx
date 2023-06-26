@@ -73,7 +73,7 @@ function index() {
             text={coursePageText.video}
             icon="Youtube"
             iconColor="text-pending"
-            position="upper-right"
+            position="youtube"
           ></Modal>
           <Modal
             overlayContent={course.content.pres()}

@@ -50,9 +50,7 @@ function index(props: RIASECType) {
         </div>
         <div className="flex flex-col md:flex-row  gap-1 justify-start items-center">
           <Button
-            variant={
-              props.color === "bg-gray-300" ? "soft-dark" : "soft-primary"
-            }
+            variant={props.color === "bg-gray-300" ? "soft-dark" : "primary"}
             className="h-7 w-full"
             onClick={() => setShowCharacteristics(true)}
           >
@@ -61,7 +59,9 @@ function index(props: RIASECType) {
 
           <Button
             variant={
-              props.color === "bg-gray-300" ? "soft-secondary" : "soft-success"
+              props.color === "bg-gray-300"
+                ? "soft-secondary"
+                : "outline-primary"
             }
             className="h-7 w-full"
             onClick={() => setShowCareers(true)}

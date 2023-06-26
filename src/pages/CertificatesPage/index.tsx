@@ -52,16 +52,6 @@ function index() {
 
           <div className="overflow-auto intro-y lg:overflow-visible sm:mt-0 w-full ">
             <Table className="border-spacing-y-[10px] border-separate sm:mt-2">
-              <Table.Thead>
-                <Table.Tr>
-                  <Table.Th className="border-b-0 whitespace-nowrap">
-                    {CertificatesPageText.tableCourseTitle}
-                  </Table.Th>
-                  <Table.Th className="border-b-0 whitespace-nowrap">
-                    {CertificatesPageText.tableCertificate}
-                  </Table.Th>
-                </Table.Tr>
-              </Table.Thead>
               <Table.Tbody>
                 {completedCourses.map((course: any) => (
                   <Table.Tr key={course.id} className="intro-x">

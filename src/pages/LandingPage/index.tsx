@@ -8,6 +8,7 @@ import { changeLanguage } from "../../stores/languageSlice";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import illustrationUrl from "../../assets/images/landing-page-woman-illustration.png";
 import Visibility from "../../components/VisibilitySign";
+import { useState } from "react";
 
 function Main() {
   const language = useSelector((state: any) => state.language.len);
@@ -97,6 +98,7 @@ function Main() {
                       <FormCheck.Input
                         id="radio-hr"
                         type="radio"
+                        checked={language === "hr"}
                         value="hr"
                         onChange={(e) => handleLanguageChange(e.target.value)}
                       />
@@ -112,6 +114,7 @@ function Main() {
                         id="radio-si"
                         type="radio"
                         value="si"
+                        checked={language === "si"}
                         onChange={(e) => handleLanguageChange(e.target.value)}
                       />
                       <FormCheck.Label htmlFor="radio-si">
@@ -125,6 +128,7 @@ function Main() {
                         id="radio-pl"
                         type="radio"
                         value="pl"
+                        checked={language === "pl"}
                         onChange={(e) => handleLanguageChange(e.target.value)}
                       />
                       <FormCheck.Label htmlFor="radio-pl">
@@ -138,6 +142,7 @@ function Main() {
                         id="radio-cz"
                         type="radio"
                         value="cz"
+                        checked={language === "cz"}
                         onChange={(e) => handleLanguageChange(e.target.value)}
                       />
                       <FormCheck.Label htmlFor="radio-cz">
