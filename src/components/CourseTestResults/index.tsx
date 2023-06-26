@@ -34,7 +34,7 @@ function index(props: CourseTestResults) {
   const { points } = props;
 
   useEffect(() => {
-    if (points >= 3) {
+    if (points >= 7) {
       const courseIndex = coursesOrder.findIndex(
         (course: any) => course.id === courseID
       );
@@ -51,7 +51,7 @@ function index(props: CourseTestResults) {
   return (
     <>
       <h2 className="text-xl opacity-0 translate-x-[50px] animate-[0.4s_ease-in-out_0.3s_intro-menu] animate-fill-mode-forwards">
-        {resultsText.resultsHeading} <b>{points}/5</b>
+        {resultsText.resultsHeading} <b>{points}/10</b>
       </h2>
 
       {points >= 3 ? (
