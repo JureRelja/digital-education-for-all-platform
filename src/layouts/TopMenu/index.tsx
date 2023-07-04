@@ -79,7 +79,7 @@ function Main() {
   }, [location.pathname]);
 
   return (
-    <div className="py-2">
+    <div className="py-2 overflow-hidden">
       <MobileMenu />
       {/* BEGIN: Top Bar */}
       <div className="border-b border-white/[0.09] mt-[2.2rem] md:-mt-5 -mx-3 sm:-mx-8 px-3 sm:px-8 pt-3 md:pt-0 mb-10 ">
@@ -171,7 +171,7 @@ function Main() {
         <div className="flex flex-col justify-start items-center flex-1 w-full max-w-[1000px]">
           <Outlet />
         </div>
-        <div className="mt-5 py-2 border-t-slate-300 border-t-[1px] flex flex-col gap-2 text-center justify-center items-center align-middle w-fit">
+        <div className="mt-16 py-2 border-t-slate-300 border-t-[1px] flex flex-col gap-2 text-center justify-center items-center align-middle w-fit">
           <img src={bannersUrl} className="md:w-2/4  w-full" />
           <p className="text-slate-600 text-xs">{topMenuText.disclaimer}</p>
         </div>

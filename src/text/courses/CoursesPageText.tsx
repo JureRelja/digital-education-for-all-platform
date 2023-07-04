@@ -4,8 +4,6 @@ export const coursesPageTextEn = {
   notCompletedParagraph: `To see the
   courses offered, you must first complete the initial test.`,
   notCompletedButtonText: `Go to Initial test`,
-  tableTextCourses: "Course title",
-  tableTextStatus: "Status",
   tableTextDownload: "Get certificate",
   tableTextStart: "Start course",
   tableTextCompleted: "Completed",

@@ -36,16 +36,17 @@ function Main() {
 
   return (
     <>
+      {/* mb-6*/}
       {/* BEGIN: Mobile Menu */}
       <div
         className={clsx([
-          "w-full fixed bg-primary/90 z-[60] border-b border-white/[0.08] -mt-5 -mx-3 sm:-mx-8 mb-6 dark:bg-darkmode-800/90 md:hidden",
+          "w-[100vw] fixed bg-primary/90 z-[60] border-b border-white/[0.08] -mx-3 sm:-mx-8 -mt-5 md:hidden",
           "before:content-[''] before:w-full before:h-screen before:z-10 before:fixed before:inset-x-0 before:bg-black/90 before:transition-opacity before:duration-200 before:ease-in-out",
           !activeMobileMenu && "before:invisible before:opacity-0",
           activeMobileMenu && "before:visible before:opacity-100",
         ])}
       >
-        <div className="h-[70px] px-3 sm:px-8 flex items-center">
+        <div className="h-full py-5 px-3 sm:px-8 flex items-center">
           <div className="flex mr-auto">
             <img
               alt="Midone Tailwind HTML Admin Template"
@@ -67,7 +68,7 @@ function Main() {
         <div
           ref={scrollableRef}
           className={clsx([
-            "h-screen z-20 top-0 left-0 w-[270px] -ml-[100%] bg-primary transition-all duration-300 ease-in-out dark:bg-darkmode-800",
+            "h-screen z-20 top-0 left-0 w-[270px] -ml-[100%] bg-primary transition-all duration-300 ease-in-out",
             "[&[data-simplebar]]:fixed [&_.simplebar-scrollbar]:before:bg-black/50",
             activeMobileMenu && "ml-0",
           ])}

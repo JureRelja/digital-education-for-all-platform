@@ -6,6 +6,7 @@ import useText from "../../hooks/textLanguage";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { Disclosure } from "../../base-components/Headless";
+import { twMerge } from "tailwind-merge";
 
 type Course = {
   id: number;
@@ -45,21 +46,16 @@ function index(props: Courses) {
       <Disclosure.Panel className="leading-relaxed text-slate-600 ">
         {props.courses.length > 0 ? (
           <Table className="border-spacing-y-[10px] border-separate sm:mb-2 ">
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th className="border-b-0 whitespace-nowrap">
-                  {coursesPageText.tableTextCourses}
-                </Table.Th>
-                <Table.Th className="border-b-0 whitespace-nowrap">
-                  {coursesPageText.tableTextStatus}
-                </Table.Th>
-              </Table.Tr>
-            </Table.Thead>
             <Table.Tbody>
               {orderedCourses.map((course: any) => (
                 <Table.Tr key={course.id} className="intro-x">
                   <Table.Td
-                    className={`first:rounded-l-md last:rounded-r-md bg-white border-b-0 shadow-[10px_3px_20px_#0000000b] px-2 md:px-3 border-y-[1px] border-secondary border-l-[1px]`}
+                    className={twMerge(
+                      [
+                        `first:rounded-l-md last:rounded-r-md border-b-0 shadow-[20px_3px_20px_#0000000b] px-2 md:px-3 border-y-[1px] border-secondary border-l-[1px]`,
+                      ],
+                      course.completed ? "bg-success" : "bg-white"
+                    )}
                   >
                     <h2
                       className={clsx([
@@ -72,7 +68,10 @@ function index(props: Courses) {
                     </h2>
                   </Table.Td>
                   <Table.Td
-                    className={`first:rounded-l-md last:rounded-r-md md:w-40 bg-white border-b-0 shadow-[10px_3px_20px_#0000000b] px-1 md:px-3 border-y-[1px] border-secondary `}
+                    className={twMerge([
+                      `first:rounded-l-md last:rounded-r-md md:w-40 border-b-0 shadow-[20px_3px_20px_#0000000b] px-1 md:px-3 border-y-[1px] border-secondary `,
+                      course.completed ? "bg-success" : "bg-white",
+                    ])}
                   >
                     <div
                       className={clsx([
@@ -99,12 +98,15 @@ function index(props: Courses) {
                     </div>
                   </Table.Td>
                   <Table.Td
-                    className={`first:rounded-l-md last:rounded-r-md md:w-56 bg-white border-r-[1px] border-y-[1px] border-secondary shadow-[10px_3px_20px_#0000000b] py-0 px-2 md:px-4 relative before:block before:w-px before:h-8 before:bg-slate-200 before:absolute before:left-0 before:inset-y-0 before:my-auto`}
+                    className={twMerge([
+                      `first:rounded-l-md last:rounded-r-md md:w-56 border-r-[1px] border-y-[1px] border-secondary shadow-[20px_3px_20px_#0000000b] py-0 px-2 md:px-4 relative before:block before:w-px before:h-8 before:bg-slate-200 before:absolute before:left-0 before:inset-y-0 before:my-auto`,
+                      course.completed ? "bg-success" : "bg-white",
+                    ])}
                   >
                     <div className="flex items-center justify-center text-center">
                       {course.completed ? (
                         <Link
-                          className="flex items-center md:mr-1"
+                          className="flex items-center md:mr-1 text-white"
                           to="/dashboard/certificates"
                         >
                           <Lucide icon="Archive" className="w-4 h-4 md:mr-1" />

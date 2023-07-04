@@ -15,6 +15,7 @@ type Props = {
 
 function index(props: Props) {
   const [showModal, setShowModal] = useState(false);
+
   {
     /* BEGIN: Modal With Close Button */
   }
@@ -45,7 +46,6 @@ function index(props: Props) {
         </div>
       </div>
       <Dialog
-        center={false}
         open={showModal}
         onClose={() => {
           setShowModal(false);
@@ -58,14 +58,14 @@ function index(props: Props) {
               setShowModal(false);
             }}
             className={twMerge([
-              "absolute mt-3 ",
+              "absolute mt-3 z-50",
               props.position == "upper-left"
                 ? "top-0 left-0 ml-3"
                 : "top-0 right-0 mr-3",
             ])}
             href="#"
           >
-            <Lucide icon="X" className="w-8 h-8 text-slate-400" />
+            <Lucide icon="X" className="w-8 h-8 text-slate-400 " />
           </a>
           {props.overlayContent}
         </Dialog.Panel>

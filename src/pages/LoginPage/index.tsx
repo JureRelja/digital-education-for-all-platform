@@ -25,6 +25,7 @@ import YearPicker from "../../components/DatePicker/YearPicker";
 import MonthPicker from "../../components/DatePicker/MonthPicker";
 import DayPicker from "../../components/DatePicker/DayPicker";
 import FormLabel from "../../base-components/Form/FormLabel";
+import LoadingIcon from "../../base-components/LoadingIcon";
 
 function Main() {
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ function Main() {
   const [day, setDay] = useState(0);
 
   const [isFormValid, setIsFormValid] = useState(true); //Checking if the data is valid
+  const [submiting, setSubmiting] = useState(false);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -59,7 +61,9 @@ function Main() {
       setIsFormValid(false);
     } else {
       //Store user in database
+
       setIsFormValid(true);
+      setSubmiting(true);
       authUser();
     }
   };
@@ -257,6 +261,15 @@ function Main() {
                       onClick={handleSubmit}
                     >
                       {loginPageText.submit}
+                      {submiting ? (
+                        <LoadingIcon
+                          icon="oval"
+                          color="white"
+                          className="w-4 h-4 ml-2"
+                        />
+                      ) : (
+                        ""
+                      )}
                     </Button>
                   </div>
                 </form>
