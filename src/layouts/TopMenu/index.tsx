@@ -167,8 +167,8 @@ function Main() {
       </nav>
       {/* END: Top Menu */}
       {/* BEGIN: Content */}
-      <div className="rounded-[30px] min-w-0 flex-1 flex flex-col justify-between items-center pb-3 bg-slate-100 px-4 md:px-[22px] max-w-full md:max-w-auto before:content-[''] before:w-full before:h-px before:block min-h-[80vh]">
-        <div className="flex flex-col justify-start items-center flex-1 w-full  max-w-[1000px]">
+      <div className="rounded-[30px] min-w-0 flex-1 flex flex-col justify-between items-center pb-3 bg-slate-100 px-4 md:px-[22px] max-w-full md:max-w-auto before:content-[''] before:w-full before:h-px before:block min-h-[80vh] overflow-hidden">
+        <div className="flex flex-col justify-start items-center flex-1 w-full max-w-[1000px]">
           <Outlet />
         </div>
         <div className="mt-5 py-2 border-t-slate-300 border-t-[1px] flex flex-col gap-2 text-center justify-center items-center align-middle w-fit">
